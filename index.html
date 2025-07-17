@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KyroServices Global - Power of Europe</title>
+    <style>
+        /* --- Genel Stiller ve Resetleme --- */
+        :root {
+            --primary-color: #0d2c54; /* Koyu Mavi */
+            --secondary-color: #fca311; /* Altın Sarısı / Turuncu */
+            --text-color: #333;
+            --light-text-color: #ffffff;
+            --background-color: #f8f9fa;
+            --card-background: #ffffff;
+            --footer-background: #0d2c54;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&family=Lato:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 2rem;
+            overflow: hidden;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--card-background);
+        }
+
+        /* --- Header / Hero Alanı --- */
+        .hero {
+            background: linear-gradient(rgba(13, 44, 84, 0.85), rgba(13, 44, 84, 0.85)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600') no-repeat center center/cover;
+            color: var(--light-text-color);
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--light-text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--secondary-color);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- Bölüm Başlıkları --- */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* --- Hakkımızda Bölümü --- */
+        #hakkimizda p {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* --- Markalar ve Operasyonlar Bölümü --- */
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .brand-card {
+            background: var(--card-background);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .brand-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* --- Stratejik Yaklaşım Bölümü --- */
+        #strateji {
+            background: var(--primary-color);
+            color: var(--light-text-color);
+        }
+
+        #strateji .section-title h2, #strateji p {
+            color: var(--light-text-color);
+        }
+
+        #strateji .section-title h2::after {
+            background: #ffffff;
+        }
+        
+        #strateji p {
+             max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        /* --- İletişim Bölümü --- */
+        #iletisim {
+            text-align: center;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .contact-btn:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--footer-background);
+            color: var(--light-text-color);
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* --- Mobil Uyum (Responsiveness) --- */
+        @media (max-width: 768px) {
+            .hero {
+                height: 50vh;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>KyroServices Global</h1>
+        <p>Power of Europe</p>
+    </header>
+
+    <main>
+        <section id="hakkimizda">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Hakkımızda</h2>
+                </div>
+                <p>
+                    KyrosServices Global, ticaretten tekstile, vize danışmanlığından inşaata kadar çeşitli sektörlerde faaliyet gösteren bir çatı şirkettir. Bünyesinde farklı pazarlara ve sektörlere hitap eden, her biri dünya çapındaki müşterilere yüksek kalitede hizmet sunmaya odaklanmış birçok uzmanlaşmış markayı barındırmaktadır.
+                </p>
+            </div>
+        </section>
+
+        <section id="markalarimiz">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Markalarımız ve Operasyonlarımız</h2>
+                </div>
+                <div class="brands-grid">
+                    
+                    <div class="brand-card">
+                        <h3>Kyros and Dimitri History Services</h3>
+                        <p>Hükümet tarihi ve tarihsel danışmanlık hizmetlerine odaklanan bu marka, uluslararası alanda çalışarak hükümetlere, kuruluşlara ve karar alıcılara çağdaş sorunların karmaşıklığını anlamalarında yardımcı olacak tarihsel süreçlere dair içgörüler sunar.</p>
+                    </div>
+
+                    <div class="brand-card">
+                        <h3>PEP</h3>
+                        <p>Çevrimiçi ödeme çözümleri sunan bir elektronik para şirketidir. Hızlı, güvenli ve modern ödeme hizmetleri sunarak dijital para dünyasında kendine yer edinen PEP, küresel varlığını genişletmeye devam etmektedir.</p>
+                    </div>
+
+                    <div class="brand-card">
+                        <h3>Yunan’dan Gelsin</h3>
+                        <p>Geleneksel Yunan ürünlerinin Türkiye pazarında satışını kolaylaştıran bu marka, Yunan gıda ürünlerinden zeytinyağına, zeytine ve diğer yöresel lezzetlere kadar geniş bir yelpazede otantik ürünler sunar.</p>
+                    </div>
+
+                    <div class="brand-card">
+                        <h3>Kampüs Giyim</h3>
+                        <p>Özellikle üniversite öğrencileri başta olmak üzere gençlere yönelik trend ve konforlu giyim ürünleri sunan bir moda markasıdır. Şık ve uygun fiyatlı koleksiyonlarla genç kitleye hitap eder.</p>
+                    </div>
+
+                    <div class="brand-card">
+                        <h3>ReziKyros</h3>
+                        <p>Yüksek kaliteli konut projelerine odaklanan bir gayrimenkul ve inşaat markasıdır. Türkiye ve uluslararası pazarlardaki yatırımcılar için kalite ve lüksü ön planda tutan konutlar geliştirir.</p>
+                    </div>
+
+                    <div class="brand-card">
+                        <h3>Kosmos Vize</h3>
+                        <p>Yunanistan vize hizmetlerinde uzmanlaşmış ve Türkiye'deki tek Yunanistan yetkili vize danışmanlık şirketidir. Yunanistan'ın yanı sıra Schengen vize hizmetleri de sunarak başvuru süreçlerini hızlı ve verimli bir şekilde yönetir.</p>
+                    </div>
+
+                    <div class="brand-card">
+                        <h3>Türkiye Operasyonları</h3>
+                        <p><strong>2 Burger King Şubesi:</strong> Vadi İstanbul ve Bodrum Hilmiuran'da yer alan bu şubeler, yüksek kalitede fast-food hizmeti sunar.<br><strong>1 Starbucks Loyalty Şubesi:</strong> Bodrum Neyzen Tevfik'te bulunan bu şube, global kahve markasını müşterilerle buluşturur.</p>
+                    </div>
+                     <div class="brand-card">
+                        <h3>Faaliyet Alanları</h3>
+                        <p>KyrosServices Global; ticaret, tekstil, inşaat, elektronik ödemeler ve danışmanlık hizmetleri de dahil olmak üzere çeşitli sektörlerde faaliyet göstermektedir. Bu çeşitlilik, geniş bir endüstri yelpazesinin ihtiyaçlarını karşılamamızı sağlar.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <section id="strateji">
+            <div class="container">
+                 <div class="section-title">
+                    <h2>Stratejik Yaklaşımımız</h2>
+                </div>
+                <p>
+                    Bir tarihçi olarak, tarihsel verileri ve öngörüleri kullanarak şirketin stratejik karar alma süreçlerine katkıda bulunuyor, iş yaklaşımımıza rehberlik ederek sürekli başarı ve büyüme için konumlandığımızdan emin oluyorum.
+                </p>
+            </div>
+        </section>
+
+        <section id="iletisim">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Bizimle İletişime Geçin</h2>
+                </div>
+                <p>Proje ve iş birlikleriniz için bize ulaşmaktan çekinmeyin.</p>
+                <a href="mailto:info@kyroservices.eu" class="contact-btn">E-Posta Gönderin</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> KyroServices Global. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Yılı otomatik olarak güncelleyen script
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
