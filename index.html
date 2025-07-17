@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+<div class="page-wrapper">
     <header class="main-nav">
         <div class="lang-switcher">
             <button id="lang-en" onclick="changeLanguage('en')" title="English">EN</button>
@@ -27,7 +28,7 @@
             <ul>
                 <li><a href="index.html" data-lang="menu_home"></a></li>
                 <li><a href="k-d-history.html" data-lang="menu_kd"></a></li>
-                </ul>
+            </ul>
         </nav>
     </div>
 
@@ -46,7 +47,7 @@
                 <div class="section-title"><h2 data-lang="aboutTitle"></h2></div>
                 <div class="about-text">
                     <p data-lang="aboutParagraph"></p>
-                    <p class="address" data-lang="address"><i class="fa-solid fa-location-dot"></i></p>
+                    <p class="address"><i class="fa-solid fa-location-dot"></i> <span data-lang="address"></span></p>
                 </div>
             </div>
         </section>
@@ -55,7 +56,38 @@
              <div class="container reveal">
                 <div class="section-title"><h2 data-lang="brandsTitle"></h2></div>
                 <div class="brands-grid">
+                    <div class="brand-card reveal">
+                        <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/B4D4EA2D-CF1B-4B18-AD65-EEF2D0DF0CCA_L0_001-16_01_2024-21_59_29-300x165.jpg" alt="K&D History Services Logo" class="brand-logo"></div>
+                        <h3>Kyros and Dimitri History Services</h3>
                     </div>
+                    <div class="brand-card reveal">
+                        <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/C9E56B75-CA41-4CC8-8D69-58CE4D342672_L0_001-28.01.2023-12_05_42-300x79.png" alt="PeP Logo" class="brand-logo"></div>
+                        <h3>PeP</h3>
+                    </div>
+                    <div class="brand-card reveal">
+                        <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/YUNANDAN-GELSIN-Logo-Original-5000x5000-1-300x300.png?crop=1" alt="Yunandan Gelsin Logo" class="brand-logo"></div>
+                        <h3>Yunan’dan Gelsin</h3>
+                    </div>
+                    <div class="brand-card reveal">
+                        <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/indir-3.png" alt="Kampüs Giyim Logo" class="brand-logo"></div>
+                        <h3>Kampüs Giyim</h3>
+                    </div>
+                    <div class="brand-card reveal">
+                        <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/8_31_2022-8_02_56-AM-150x300.png" alt="ReziKyros Logo" class="brand-logo"></div>
+                        <h3>ReziKyros</h3>
+                    </div>
+                    <div class="brand-card reveal">
+                        <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/7_4_2022-5_57_28-AM-150x99.png" alt="Kosmos Vize Logo" class="brand-logo"></div>
+                        <h3>Kosmos Vize</h3>
+                    </div>
+                    <div class="brand-card reveal">
+                        <div class="brand-logo-container" style="display:flex; gap: 1rem;">
+                            <img src="https://kyrosil.eu/wp-content/uploads/2025/04/image-1.png" alt="Burger King Logo" class="brand-logo" style="width: 70px;">
+                            <img src="https://kyrosil.eu/wp-content/uploads/2025/04/image-7.png" alt="Starbucks Logo" class="brand-logo" style="width: 70px;">
+                        </div>
+                        <h3 data-lang="opsTurkeyTitle"></h3><p data-lang="opsTurkeyParagraph"></p>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -63,7 +95,17 @@
             <div class="container reveal">
                 <div class="section-title"><h2 data-lang="teamTitle"></h2></div>
                 <div class="team-grid">
-                    </div>
+                    <div class="team-card reveal"><h4 data-lang="team_kyros_name"></h4><p class="team-title" data-lang="team_kyros_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_alissa_name"></h4><p class="team-title" data-lang="team_alissa_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_gamze_name"></h4><p class="team-title" data-lang="team_gamze_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_dimitri_name"></h4><p class="team-title" data-lang="team_dimitri_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_beyza_name"></h4><p class="team-title" data-lang="team_beyza_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_sadio_name"></h4><p class="team-title" data-lang="team_sadio_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_fatma_name"></h4><p class="team-title" data-lang="team_fatma_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_fevzi_name"></h4><p class="team-title" data-lang="team_fevzi_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_tugce_name"></h4><p class="team-title" data-lang="team_tugce_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_hande_name"></h4><p class="team-title" data-lang="team_hande_title"></p></div>
+                </div>
             </div>
         </section>
 
@@ -90,5 +132,6 @@
         </div>
     </footer>
     <script src="script.js"></script>
+</div>
 </body>
 </html>
