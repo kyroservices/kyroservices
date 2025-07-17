@@ -19,277 +19,53 @@
             --white-color: #ffffff;
             --border-radius: 12px;
         }
-
-        /* --- TEMEL AYARLAR --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.8;
-            background-color: var(--light-color);
-            color: var(--dark-color);
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Roboto Slab', serif;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-        
+        body { font-family: 'Poppins', sans-serif; line-height: 1.8; background-color: var(--light-color); color: var(--dark-color); }
+        h1, h2, h3, h4 { font-family: 'Roboto Slab', serif; font-weight: 700; line-height: 1.3; }
         h2 { font-size: 2.8rem; }
         h3 { font-size: 1.5rem; }
         h4 { font-size: 1.2rem; }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 2rem;
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-        
-        section.dark-section {
-            background-color: var(--primary-color);
-            color: var(--white-color);
-        }
-        
-        section.dark-section .section-title h2, section.dark-section p {
-             color: var(--white-color);
-        }
-        
-        section.dark-section .section-title h2::after {
-            background: var(--secondary-color);
-        }
-        
-        section:nth-of-type(even) {
-            background-color: var(--white-color);
-        }
-
-        /* --- ANİMASYON --- */
-        .reveal {
-            position: relative;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- DİL DEĞİŞTİRİCİ --- */
-        .lang-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 0.4rem;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            z-index: 1000;
-            display: flex;
-            gap: 0.2rem;
-        }
-
-        .lang-switcher button {
-            background: var(--light-color);
-            color: var(--primary-color);
-            border: none;
-            font-size: 0.8rem;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            cursor: pointer;
-            transition: background-color 0.2s ease, color 0.2s ease;
-            padding: 0.5rem 0.8rem;
-            border-radius: 50px;
-            min-width: 40px;
-            text-align: center;
-        }
-
-        .lang-switcher button:hover {
-            background-color: var(--secondary-color);
-            color: var(--dark-color);
-        }
-        
-        .lang-switcher button.active {
-             background-color: var(--primary-color);
-             color: var(--white-color);
-        }
-
-        /* --- HERO BÖLÜMÜ --- */
-        .hero {
-            background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(26, 35, 126, 0.8)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-            color: var(--white-color);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-        
-        .hero-logo {
-            max-width: 150px;
-            margin-bottom: 2rem;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero .slogan {
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: var(--secondary-color);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-        
-        /* --- BÖLÜM BAŞLIKLARI --- */
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            color: var(--primary-color);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 1rem;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 5px;
-            background: var(--secondary-color);
-            border-radius: 2px;
-        }
-        
-        .about-text {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.15rem;
-            color: var(--gray-color);
-        }
-        .address {
-            margin-top: 2rem;
-            font-style: italic;
-            color: var(--gray-color);
-        }
-        .address i {
-            color: var(--secondary-color);
-            margin-right: 0.5rem;
-        }
-
-        /* --- MARKA VE EKİP KARTLARI --- */
-        .brands-grid, .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .brand-card, .team-card {
-            background: var(--white-color);
-            border: 1px solid #e0e0e0;
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-        
-        .brand-card:hover, .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        .brand-logo-container {
-            height: 80px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .brand-logo {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-        
+        .container { max-width: 1200px; margin: auto; padding: 0 2rem; }
+        section { padding: 5rem 0; }
+        section.dark-section { background-color: var(--primary-color); color: var(--white-color); }
+        section.dark-section .section-title h2, section.dark-section p { color: var(--white-color); }
+        section.dark-section .section-title h2::after { background: var(--secondary-color); }
+        section:nth-of-type(even) { background-color: var(--white-color); }
+        .reveal { position: relative; opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .lang-switcher { position: fixed; top: 20px; right: 20px; background: rgba(255, 255, 255, 0.95); padding: 0.4rem; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 1000; display: flex; gap: 0.2rem; }
+        .lang-switcher button { background: var(--light-color); color: var(--primary-color); border: none; font-size: 0.8rem; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; padding: 0.5rem 0.8rem; border-radius: 50px; min-width: 40px; text-align: center; }
+        .lang-switcher button:hover { background-color: var(--secondary-color); color: var(--dark-color); }
+        .lang-switcher button.active { background-color: var(--primary-color); color: var(--white-color); }
+        .hero { background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(26, 35, 126, 0.8)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; color: var(--white-color); min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; }
+        .hero-logo { max-width: 150px; margin-bottom: 2rem; }
+        .hero h1 { font-size: 4.5rem; margin-bottom: 0.5rem; }
+        .hero .slogan { font-size: 1.5rem; font-weight: 300; color: var(--secondary-color); letter-spacing: 3px; text-transform: uppercase; }
+        .scroll-down { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: var(--white-color); font-size: 3rem; animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); } 40% { transform: translate(-50%, -20px); } 60% { transform: translate(-50%, -10px); } }
+        .section-title { text-align: center; margin-bottom: 4rem; }
+        .section-title h2 { color: var(--primary-color); position: relative; display: inline-block; padding-bottom: 1rem; }
+        .section-title h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 5px; background: var(--secondary-color); border-radius: 2px; }
+        .about-text { max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.15rem; color: var(--gray-color); }
+        .address { margin-top: 2rem; font-style: italic; color: var(--gray-color); }
+        .address i { color: var(--secondary-color); margin-right: 0.5rem; }
+        .brands-grid, .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .brand-card, .team-card { background: var(--white-color); border: 1px solid #e0e0e0; border-radius: var(--border-radius); padding: 2.5rem; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; text-align: center; }
+        .brand-card:hover, .team-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .brand-logo-container { height: 80px; display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem; }
+        .brand-logo { max-width: 100%; max-height: 100%; object-fit: contain; }
         .brand-card h3 { color: var(--primary-color); margin-bottom: 1rem; }
         .brand-card p { color: var(--gray-color); flex-grow: 1; }
-        
         .team-card h4 { color: var(--primary-color); margin-bottom: 0.5rem; }
         .team-card .team-title { color: var(--secondary-color); font-weight: 600; font-size: 0.9rem; }
-
-        /* --- İLETİŞİM BÖLÜMÜ --- */
         #iletisim { text-align: center; }
         #iletisim p { font-size: 1.2rem; color: var(--gray-color); }
-
-        .contact-btn {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: var(--dark-color);
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin-top: 2rem;
-            transition: all 0.3s ease;
-            border: 2px solid var(--secondary-color);
-        }
-
-        .contact-btn:hover {
-            background: var(--primary-color);
-            color: var(--white-color);
-            border-color: var(--primary-color);
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: var(--dark-color);
-            color: #bdbdbd;
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-        
-        .footer-logo-collage {
-            max-width: 300px;
-            margin-bottom: 2rem;
-        }
-        
-        /* --- RESPONSIVE TASARIM --- */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem; /* Mobilde kenar boşluğunu azalttık */
-            }
-            h2 { font-size: 2.2rem; }
-            .hero h1 { font-size: 3rem; }
-            .hero .slogan { font-size: 1rem; }
-        }
+        .contact-btn { display: inline-block; background: var(--secondary-color); color: var(--dark-color); padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.2rem; margin-top: 2rem; transition: all 0.3s ease; border: 2px solid var(--secondary-color); }
+        .contact-btn:hover { background: var(--primary-color); color: var(--white-color); border-color: var(--primary-color); transform: scale(1.05); box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3); }
+        footer { background-color: var(--dark-color); color: #bdbdbd; text-align: center; padding: 4rem 2rem; }
+        .footer-logo-collage { max-width: 300px; margin-bottom: 2rem; }
+        @media (max-width: 768px) { .container { padding: 0 1rem; } h2 { font-size: 2.2rem; } .hero h1 { font-size: 3rem; } .hero .slogan { font-size: 1rem; } }
     </style>
 </head>
 <body>
@@ -307,14 +83,13 @@
             <h1>KyroServices Global</h1>
             <p class="slogan" data-lang="slogan"></p>
         </div>
+        <a href="#hakkimizda" class="scroll-down" aria-label="Scroll down"><i class="fa-solid fa-chevron-down"></i></a>
     </header>
 
     <main>
         <section id="hakkimizda">
             <div class="container reveal">
-                <div class="section-title">
-                    <h2 data-lang="aboutTitle"></h2>
-                </div>
+                <div class="section-title"><h2 data-lang="aboutTitle"></h2></div>
                 <div class="about-text">
                     <p data-lang="aboutParagraph"></p>
                     <p class="address" data-lang="address"><i class="fa-solid fa-location-dot"></i></p>
@@ -324,47 +99,38 @@
 
         <section id="markalar">
             <div class="container reveal">
-                <div class="section-title">
-                    <h2 data-lang="brandsTitle"></h2>
-                </div>
+                <div class="section-title"><h2 data-lang="brandsTitle"></h2></div>
                 <div class="brands-grid">
                     <div class="brand-card reveal">
                         <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/B4D4EA2D-CF1B-4B18-AD65-EEF2D0DF0CCA_L0_001-16_01_2024-21_59_29-300x165.jpg" alt="Kyros and Dimitri History Services Logo" class="brand-logo"></div>
-                        <h3>Kyros and Dimitri History Services</h3>
-                        <p data-lang="brand_history"></p>
+                        <h3>Kyros and Dimitri History Services</h3><p data-lang="brand_history"></p>
                     </div>
                     <div class="brand-card reveal">
                         <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/C9E56B75-CA41-4CC8-8D69-58CE4D342672_L0_001-28.01.2023-12_05_42-300x79.png" alt="PeP Logo" class="brand-logo"></div>
-                        <h3>PeP</h3>
-                        <p data-lang="brand_pep"></p>
+                        <h3>PeP</h3><p data-lang="brand_pep"></p>
                     </div>
                     <div class="brand-card reveal">
                         <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/YUNANDAN-GELSIN-Logo-Original-5000x5000-1-300x300.png?crop=1" alt="Yunandan Gelsin Logo" class="brand-logo"></div>
-                        <h3>Yunan’dan Gelsin</h3>
-                        <p data-lang="brand_yunan"></p>
+                        <h3>Yunan’dan Gelsin</h3><p data-lang="brand_yunan"></p>
                     </div>
                     <div class="brand-card reveal">
                         <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/indir-3.png" alt="Kampüs Giyim Logo" class="brand-logo"></div>
-                        <h3>Kampüs Giyim</h3>
-                        <p data-lang="brand_kampus"></p>
+                        <h3>Kampüs Giyim</h3><p data-lang="brand_kampus"></p>
                     </div>
                     <div class="brand-card reveal">
                         <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/8_31_2022-8_02_56-AM-150x300.png" alt="ReziKyros Logo" class="brand-logo"></div>
-                        <h3>ReziKyros</h3>
-                        <p data-lang="brand_rezi"></p>
+                        <h3>ReziKyros</h3><p data-lang="brand_rezi"></p>
                     </div>
                     <div class="brand-card reveal">
                         <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/7_4_2022-5_57_28-AM-150x99.png" alt="Kosmos Vize Logo" class="brand-logo"></div>
-                        <h3>Kosmos Vize</h3>
-                        <p data-lang="brand_kosmos"></p>
+                        <h3>Kosmos Vize</h3><p data-lang="brand_kosmos"></p>
                     </div>
                     <div class="brand-card reveal">
                         <div class="brand-logo-container" style="display:flex; gap: 1rem;">
                             <img src="https://kyrosil.eu/wp-content/uploads/2025/04/image-1.png" alt="Burger King Logo" class="brand-logo" style="width: 70px;">
                             <img src="https://kyrosil.eu/wp-content/uploads/2025/04/image-7.png" alt="Starbucks Logo" class="brand-logo" style="width: 70px;">
                         </div>
-                        <h3 data-lang="opsTurkeyTitle"></h3>
-                        <p data-lang="opsTurkeyParagraph"></p>
+                        <h3 data-lang="opsTurkeyTitle"></h3><p data-lang="opsTurkeyParagraph"></p>
                     </div>
                 </div>
             </div>
@@ -372,9 +138,7 @@
 
         <section id="ekip" class="dark-section">
             <div class="container reveal">
-                <div class="section-title">
-                    <h2 data-lang="teamTitle"></h2>
-                </div>
+                <div class="section-title"><h2 data-lang="teamTitle"></h2></div>
                 <div class="team-grid">
                     <div class="team-card reveal"><h4 data-lang="team_kyros_name"></h4><p class="team-title" data-lang="team_kyros_title"></p></div>
                     <div class="team-card reveal"><h4 data-lang="team_alissa_name"></h4><p class="team-title" data-lang="team_alissa_title"></p></div>
@@ -392,18 +156,14 @@
         
         <section id="strateji">
             <div class="container reveal">
-                <div class="section-title">
-                    <h2 data-lang="strategyTitle"></h2>
-                </div>
+                <div class="section-title"><h2 data-lang="strategyTitle"></h2></div>
                 <p class="about-text" data-lang="strategyParagraph"></p>
             </div>
         </section>
 
         <section id="iletisim">
             <div class="container reveal">
-                 <div class="section-title">
-                    <h2 data-lang="contactTitle"></h2>
-                </div>
+                 <div class="section-title"><h2 data-lang="contactTitle"></h2></div>
                 <p data-lang="contactSubtitle"></p>
                 <a href="mailto:info@kyroservices.eu" class="contact-btn" data-lang="contactButton"></a>
             </div>
@@ -418,7 +178,6 @@
     </footer>
 
     <script>
-    // --- DİL VERİLERİ (ÇEVİRİLERİ BURADAN DÜZENLEYİN) ---
     const translations = {
         en: {
             slogan: "Power of Europe",
@@ -433,7 +192,7 @@
             brand_rezi: "A real estate and construction brand focusing on high-end residential projects for investors in Turkey and international markets.",
             brand_kosmos: "The only Greece-authorized visa consultancy company in Turkey, specializing in Greece and Schengen visa services.",
             opsTurkeyTitle: "Franchise Operations",
-            opsTurkeyParagraph: "The Vadi İstanbul AVM store and all Starbucks stores in the Bodrum region are operated by us.",
+            opsTurkeyParagraph: "2 Burger King branches (Vadi Istanbul, Bodrum) and all Starbucks stores in the Bodrum region are operated by us.",
             teamTitle: "Our Board of Directors",
             team_kyros_name: "Kyros I. DUGAN", team_kyros_title: "Founder & Owner",
             team_alissa_name: "Alissa KIRAKIS", team_alissa_title: "General Director, KyroServices Global",
@@ -464,7 +223,7 @@
             brand_rezi: "Türkiye ve uluslararası pazarlardaki yatırımcılar için yüksek kaliteli konut projelerine odaklanan bir gayrimenkul ve inşaat markası.",
             brand_kosmos: "Yunanistan ve Schengen vize hizmetlerinde uzmanlaşmış, Türkiye'deki tek Yunanistan yetkili vize danışmanlık şirketi.",
             opsTurkeyTitle: "Franchise Operasyonları",
-            opsTurkeyParagraph: "Vadi İstanbul AVM mağazası ve Bodrum bölgesindeki tüm Starbucks mağazaları tarafımızca işletilmektedir.",
+            opsTurkeyParagraph: "2 Burger King (Vadi İstanbul, Bodrum) şubesi ve Bodrum bölgesindeki tüm Starbucks mağazaları tarafımızca işletilmektedir.",
             teamTitle: "Yönetim Kurulu",
             team_kyros_name: "Kyros I. DUGAN", team_kyros_title: "Kurucu Sahip",
             team_alissa_name: "Alissa KIRAKIS", team_alissa_title: "KyroServices Global Genel Direktörü",
@@ -495,7 +254,7 @@
             brand_rezi: "Μια μάρκα ακινήτων και κατασκευών που εστιάζει σε πολυτελή οικιστικά έργα για επενδυτές στην Τουρκία και τις διεθνείς αγορές.",
             brand_kosmos: "Η μόνη εξουσιοδοτημένη από την Ελλάδα εταιρεία συμβούλων για βίζες στην Τουρκία, που ειδικεύεται στις υπηρεσίες βίζας για την Ελλάδα και τη Σένγκεν.",
             opsTurkeyTitle: "Δραστηριότητες Franchise",
-            opsTurkeyParagraph: "Το κατάστημα στο Vadi İstanbul AVM και όλα τα καταστήματα Starbucks στην περιοχή της Αλικαρνασσού λειτουργούν υπό τη διαχείρισή μας.",
+            opsTurkeyParagraph: "2 υποκαταστήματα Burger King (Vadi Istanbul, Bodrum) και όλα τα καταστήματα Starbucks στην περιοχή της Αλικαρνασσού λειτουργούν υπό τη διαχείρισή μας.",
             teamTitle: "Το Διοικητικό μας Συμβούλιο",
             team_kyros_name: "Kyros I. DUGAN", team_kyros_title: "Ιδρυτής & Ιδιοκτήτης",
             team_alissa_name: "Alissa KIRAKIS", team_alissa_title: "Γενική Διευθύντρια, KyroServices Global",
@@ -526,7 +285,7 @@
             brand_rezi: "Une marque d'immobilier et de construction axée sur des projets résidentiels haut de gamme pour les investisseurs en Turquie et sur les marchés internationaux.",
             brand_kosmos: "La seule société de conseil en visas autorisée par la Grèce en Turquie, spécialisée dans les services de visas pour la Grèce et l'espace Schengen.",
             opsTurkeyTitle: "Opérations de Franchise",
-            opsTurkeyParagraph: "Le magasin du centre commercial Vadi İstanbul et tous les magasins Starbucks de la région de Bodrum sont exploités par nos soins.",
+            opsTurkeyParagraph: "2 succursales Burger King (Vadi Istanbul, Bodrum) et tous les magasins Starbucks de la région de Bodrum sont exploités par nos soins.",
             teamTitle: "Notre Conseil d'Administration",
             team_kyros_name: "Kyros I. DUGAN", team_kyros_title: "Fondateur & Propriétaire",
             team_alissa_name: "Alissa KIRAKIS", team_alissa_title: "Directrice Générale, KyroServices Global",
@@ -545,16 +304,10 @@
             contactButton: "Envoyer un e-mail"
         }
     };
-
-    // --- DİL DEĞİŞTİRME FONKSİYONU ---
     function changeLanguage(lang) {
         document.documentElement.lang = lang;
-        
-        // Aktif butonu ayarla
         document.querySelectorAll('.lang-switcher button').forEach(btn => btn.classList.remove('active'));
         document.getElementById(`lang-${lang}`).classList.add('active');
-
-        // Metinleri çevir
         const elements = document.querySelectorAll('[data-lang]');
         elements.forEach(el => {
             const key = el.getAttribute('data-lang');
@@ -563,28 +316,20 @@
             }
         });
     }
-    
-    // --- SCROLL ANİMASYONU ---
     function revealOnScroll() {
         const reveals = document.querySelectorAll('.reveal');
         for (let i = 0; i < reveals.length; i++) {
             const windowHeight = window.innerHeight;
             const elementTop = reveals[i].getBoundingClientRect().top;
             const elementVisible = 100;
-
             if (elementTop < windowHeight - elementVisible) {
                 reveals[i].classList.add('active');
             }
         }
     }
-
-    // --- SAYFA YÜKLENDİĞİNDE ÇALIŞACAK KODLAR ---
     document.addEventListener('DOMContentLoaded', () => {
-        // Düzeltme: Sayfayı her zaman İngilizce başlat
         changeLanguage('en'); 
-        
         document.getElementById('year').textContent = new Date().getFullYear();
-        
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll(); 
     });
