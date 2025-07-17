@@ -25,7 +25,7 @@ section { padding: 5rem 0; overflow: hidden; }
 .lang-switcher button.active { background-color: var(--primary-color); color: var(--white-color); }
 .menu-toggle { background: rgba(255, 255, 255, 0.95); border: none; color: var(--primary-color); font-size: 1.5rem; cursor: pointer; width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; justify-content: center; align-items: center; }
 .overlay-menu { position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100%; background: var(--primary-color); z-index: 1001; display: flex; flex-direction: column; padding: 6rem 2rem; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); }
-.overlay-menu.open { right: 0; }
+.overlay-menu.open { right: 0; box-shadow: -10px 0 30px rgba(0,0,0,0.2); }
 .overlay-menu nav ul { list-style: none; text-align: left; }
 .overlay-menu nav ul li { margin: 1.5rem 0; }
 .overlay-menu nav ul li a { color: var(--white-color); font-size: 1.8rem; font-family: 'Roboto Slab', serif; transition: color 0.3s ease; }
@@ -60,6 +60,7 @@ section { padding: 5rem 0; overflow: hidden; }
 .team-card .team-title { color: var(--secondary-color); font-weight: 600; font-size: 0.9rem; }
 .service-card .icon, .presence-card .icon { font-size: 3rem; color: var(--secondary-color); margin-bottom: 1.5rem; }
 .service-card h4 { color: var(--primary-color); }
+.service-card p { color: var(--gray-color); } /* Düzeltme: Beyaz metin sorununu giderir */
 
 /* --- FORM --- */
 .form-container { max-width: 800px; margin: 2rem auto; padding: 3rem; background: var(--white-color); border-radius: var(--border-radius); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
@@ -85,12 +86,13 @@ footer { background-color: var(--dark-color); color: #bdbdbd; text-align: center
 .thank-you-box { background: var(--white-color); padding: 4rem; border-radius: var(--border-radius); box-shadow: 0 20px 50px rgba(0,0,0,0.2); margin: 1rem; }
 .thank-you-box .icon { font-size: 5rem; color: var(--secondary-color); margin-bottom: 2rem; }
 
-/* --- RESPONSIVE --- */
+/* --- RESPONSIVE DÜZELTMELERİ --- */
 @media (max-width: 768px) {
-    .container { padding: 0 1rem; }
+    .container { padding: 0 1.5rem; }
     h2 { font-size: 2.2rem; }
-    .hero h1 { font-size: 3rem; }
+    .hero h1 { font-size: 2.8rem; }
     .hero .slogan { font-size: 1rem; }
     .form-grid { grid-template-columns: 1fr; }
     .main-nav { padding: 10px; }
+    .presence-grid { grid-template-columns: 1fr; } /* Düzeltme: Global Varlık kartlarını mobilde alt alta dizer */
 }
