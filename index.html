@@ -4,77 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KyroServices Global - Power of Europe</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-    <style>
-        :root {
-            --primary-color: #1a237e; /* Derin lacivert */
-            --secondary-color: #ffc107; /* Canlı Altın Sarısı */
-            --dark-color: #212121;
-            --gray-color: #616161;
-            --light-color: #f5f5f5;
-            --white-color: #ffffff;
-            --border-radius: 12px;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; line-height: 1.8; background-color: var(--light-color); color: var(--dark-color); }
-        h1, h2, h3, h4 { font-family: 'Roboto Slab', serif; font-weight: 700; line-height: 1.3; }
-        h2 { font-size: 2.8rem; }
-        h3 { font-size: 1.5rem; }
-        h4 { font-size: 1.2rem; }
-        .container { max-width: 1200px; margin: auto; padding: 0 2rem; }
-        section { padding: 5rem 0; }
-        section.dark-section { background-color: var(--primary-color); color: var(--white-color); }
-        section.dark-section .section-title h2, section.dark-section p { color: var(--white-color); }
-        section.dark-section .section-title h2::after { background: var(--secondary-color); }
-        section:nth-of-type(even) { background-color: var(--white-color); }
-        .reveal { position: relative; opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .lang-switcher { position: fixed; top: 20px; right: 20px; background: rgba(255, 255, 255, 0.95); padding: 0.4rem; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 1000; display: flex; gap: 0.2rem; }
-        .lang-switcher button { background: var(--light-color); color: var(--primary-color); border: none; font-size: 0.8rem; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; padding: 0.5rem 0.8rem; border-radius: 50px; min-width: 40px; text-align: center; }
-        .lang-switcher button:hover { background-color: var(--secondary-color); color: var(--dark-color); }
-        .lang-switcher button.active { background-color: var(--primary-color); color: var(--white-color); }
-        .hero { background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(26, 35, 126, 0.8)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; color: var(--white-color); min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; }
-        .hero-logo { max-width: 150px; margin-bottom: 2rem; }
-        .hero h1 { font-size: 4.5rem; margin-bottom: 0.5rem; }
-        .hero .slogan { font-size: 1.5rem; font-weight: 300; color: var(--secondary-color); letter-spacing: 3px; text-transform: uppercase; }
-        .scroll-down { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: var(--white-color); font-size: 3rem; animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); } 40% { transform: translate(-50%, -20px); } 60% { transform: translate(-50%, -10px); } }
-        .section-title { text-align: center; margin-bottom: 4rem; }
-        .section-title h2 { color: var(--primary-color); position: relative; display: inline-block; padding-bottom: 1rem; }
-        .section-title h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 5px; background: var(--secondary-color); border-radius: 2px; }
-        .about-text { max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.15rem; color: var(--gray-color); }
-        .address { margin-top: 2rem; font-style: italic; color: var(--gray-color); }
-        .address i { color: var(--secondary-color); margin-right: 0.5rem; }
-        .brands-grid, .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
-        .brand-card, .team-card { background: var(--white-color); border: 1px solid #e0e0e0; border-radius: var(--border-radius); padding: 2.5rem; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; text-align: center; }
-        .brand-card:hover, .team-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .brand-logo-container { height: 80px; display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem; }
-        .brand-logo { max-width: 100%; max-height: 100%; object-fit: contain; }
-        .brand-card h3 { color: var(--primary-color); margin-bottom: 1rem; }
-        .brand-card p { color: var(--gray-color); flex-grow: 1; }
-        .team-card h4 { color: var(--primary-color); margin-bottom: 0.5rem; }
-        .team-card .team-title { color: var(--secondary-color); font-weight: 600; font-size: 0.9rem; }
-        #iletisim { text-align: center; }
-        #iletisim p { font-size: 1.2rem; color: var(--gray-color); }
-        .contact-btn { display: inline-block; background: var(--secondary-color); color: var(--dark-color); padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.2rem; margin-top: 2rem; transition: all 0.3s ease; border: 2px solid var(--secondary-color); }
-        .contact-btn:hover { background: var(--primary-color); color: var(--white-color); border-color: var(--primary-color); transform: scale(1.05); box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3); }
-        footer { background-color: var(--dark-color); color: #bdbdbd; text-align: center; padding: 4rem 2rem; }
-        .footer-logo-collage { max-width: 300px; margin-bottom: 2rem; }
-        @media (max-width: 768px) { .container { padding: 0 1rem; } h2 { font-size: 2.2rem; } .hero h1 { font-size: 3rem; } .hero .slogan { font-size: 1rem; } }
-    </style>
 </head>
 <body>
-    
-    <div class="lang-switcher">
-        <button id="lang-en" onclick="changeLanguage('en')" title="English">EN</button>
-        <button id="lang-tr" onclick="changeLanguage('tr')" title="Türkçe">TR</button>
-        <button id="lang-el" onclick="changeLanguage('el')" title="Ελληνικά">EL</button>
-        <button id="lang-fr" onclick="changeLanguage('fr')" title="Français">FR</button>
+    <header class="main-nav">
+        <div class="lang-switcher">
+            <button id="lang-en" onclick="changeLanguage('en')" title="English">EN</button>
+            <button id="lang-tr" onclick="changeLanguage('tr')" title="Türkçe">TR</button>
+            <button id="lang-el" onclick="changeLanguage('el')" title="Ελληνικά">EL</button>
+            <button id="lang-fr" onclick="changeLanguage('fr')" title="Français">FR</button>
+        </div>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu"><i class="fa-solid fa-bars"></i></button>
+    </header>
+
+    <div class="overlay-menu" id="overlay-menu">
+        <button class="close-menu" id="close-menu" aria-label="Close Menu">&times;</button>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-lang="menu_home"></a></li>
+                <li><a href="k-d-history.html" data-lang="menu_kd"></a></li>
+                </ul>
+        </nav>
     </div>
 
     <header class="hero">
@@ -98,62 +52,21 @@
         </section>
 
         <section id="markalar">
-            <div class="container reveal">
+             <div class="container reveal">
                 <div class="section-title"><h2 data-lang="brandsTitle"></h2></div>
                 <div class="brands-grid">
-                    <div class="brand-card reveal">
-                        <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/B4D4EA2D-CF1B-4B18-AD65-EEF2D0DF0CCA_L0_001-16_01_2024-21_59_29-300x165.jpg" alt="Kyros and Dimitri History Services Logo" class="brand-logo"></div>
-                        <h3>Kyros and Dimitri History Services</h3><p data-lang="brand_history"></p>
                     </div>
-                    <div class="brand-card reveal">
-                        <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/C9E56B75-CA41-4CC8-8D69-58CE4D342672_L0_001-28.01.2023-12_05_42-300x79.png" alt="PeP Logo" class="brand-logo"></div>
-                        <h3>PeP</h3><p data-lang="brand_pep"></p>
-                    </div>
-                    <div class="brand-card reveal">
-                        <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/YUNANDAN-GELSIN-Logo-Original-5000x5000-1-300x300.png?crop=1" alt="Yunandan Gelsin Logo" class="brand-logo"></div>
-                        <h3>Yunan’dan Gelsin</h3><p data-lang="brand_yunan"></p>
-                    </div>
-                    <div class="brand-card reveal">
-                        <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/indir-3.png" alt="Kampüs Giyim Logo" class="brand-logo"></div>
-                        <h3>Kampüs Giyim</h3><p data-lang="brand_kampus"></p>
-                    </div>
-                    <div class="brand-card reveal">
-                        <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/8_31_2022-8_02_56-AM-150x300.png" alt="ReziKyros Logo" class="brand-logo"></div>
-                        <h3>ReziKyros</h3><p data-lang="brand_rezi"></p>
-                    </div>
-                    <div class="brand-card reveal">
-                        <div class="brand-logo-container"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/7_4_2022-5_57_28-AM-150x99.png" alt="Kosmos Vize Logo" class="brand-logo"></div>
-                        <h3>Kosmos Vize</h3><p data-lang="brand_kosmos"></p>
-                    </div>
-                    <div class="brand-card reveal">
-                        <div class="brand-logo-container" style="display:flex; gap: 1rem;">
-                            <img src="https://kyrosil.eu/wp-content/uploads/2025/04/image-1.png" alt="Burger King Logo" class="brand-logo" style="width: 70px;">
-                            <img src="https://kyrosil.eu/wp-content/uploads/2025/04/image-7.png" alt="Starbucks Logo" class="brand-logo" style="width: 70px;">
-                        </div>
-                        <h3 data-lang="opsTurkeyTitle"></h3><p data-lang="opsTurkeyParagraph"></p>
-                    </div>
-                </div>
             </div>
         </section>
-
+        
         <section id="ekip" class="dark-section">
             <div class="container reveal">
                 <div class="section-title"><h2 data-lang="teamTitle"></h2></div>
                 <div class="team-grid">
-                    <div class="team-card reveal"><h4 data-lang="team_kyros_name"></h4><p class="team-title" data-lang="team_kyros_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_alissa_name"></h4><p class="team-title" data-lang="team_alissa_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_gamze_name"></h4><p class="team-title" data-lang="team_gamze_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_dimitri_name"></h4><p class="team-title" data-lang="team_dimitri_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_beyza_name"></h4><p class="team-title" data-lang="team_beyza_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_sadio_name"></h4><p class="team-title" data-lang="team_sadio_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_fatma_name"></h4><p class="team-title" data-lang="team_fatma_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_fevzi_name"></h4><p class="team-title" data-lang="team_fevzi_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_tugce_name"></h4><p class="team-title" data-lang="team_tugce_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_hande_name"></h4><p class="team-title" data-lang="team_hande_title"></p></div>
-                </div>
+                    </div>
             </div>
         </section>
-        
+
         <section id="strateji">
             <div class="container reveal">
                 <div class="section-title"><h2 data-lang="strategyTitle"></h2></div>
@@ -165,7 +78,7 @@
             <div class="container reveal">
                  <div class="section-title"><h2 data-lang="contactTitle"></h2></div>
                 <p data-lang="contactSubtitle"></p>
-                <a href="mailto:info@kyroservices.eu" class="contact-btn" data-lang="contactButton"></a>
+                <a href="mailto:info@kyroservices.eu" class="btn" data-lang="contactButton"></a>
             </div>
         </section>
     </main>
@@ -176,163 +89,6 @@
             <p>&copy; <span id="year"></span> KyroServices Global. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <script>
-    const translations = {
-        en: {
-            slogan: "Power of Europe",
-            aboutTitle: "About Us",
-            aboutParagraph: "Headquartered in Athens, Greece, KyroServices Global is a dynamic parent company operating throughout Europe and Turkey. We manage a diverse portfolio of specialized brands, delivering excellence and innovation across a wide range of industries.",
-            address: "Leoforos Kifisias 123, Marousi, 151 24 Athens, Greece",
-            brandsTitle: "Our Brands & Operations",
-            brand_history: "Kyros and Dimitri History Services🇬🇷 operates with 73 offices in 12 countries.<br>🇩🇪19 🇬🇷12 🇹🇷9 🇫🇷6 🇮🇹5 🇪🇸4 🇬🇧3 🇺🇸3 🇸🇪3 🇨🇭2 🇨🇾2 🇩🇰1<br><strong>NATO Official Partner</strong>",
-            brand_pep: "An electronic money company offering fast, secure, and modern online payment solutions, continuously expanding its global presence.",
-            brand_yunan: "Facilitates the sale of traditional Greek products in the Turkish market, offering a unique platform for customers to enjoy authentic Greek goods.",
-            brand_kampus: "A fashion brand focused on providing trendy and comfortable clothing for young people, especially university students.",
-            brand_rezi: "A real estate and construction brand focusing on high-end residential projects for investors in Turkey and international markets.",
-            brand_kosmos: "The only Greece-authorized visa consultancy company in Turkey, specializing in Greece and Schengen visa services.",
-            opsTurkeyTitle: "Franchise Operations",
-            opsTurkeyParagraph: "2 Burger King branches (Vadi Istanbul, Bodrum) and all Starbucks stores in the Bodrum region are operated by us.",
-            teamTitle: "Our Board of Directors",
-            team_kyros_name: "Kyros I. DUGAN", team_kyros_title: "Founder & Owner",
-            team_alissa_name: "Alissa KIRAKIS", team_alissa_title: "General Director, KyroServices Global",
-            team_gamze_name: "Gamze ÖZDEN", team_gamze_title: "General Director, KyroServices Turkey & Yunandan Gelsin",
-            team_dimitri_name: "Dimitri LYANOS", team_dimitri_title: "General Director, K&D History Services Europe & USA",
-            team_beyza_name: "Beyza ÇİMEN", team_beyza_title: "General Director, K&D History Services Turkey",
-            team_sadio_name: "Mehmet Sadioğlu", team_sadio_title: "General Manager, PeP",
-            team_fatma_name: "Fatma BAYSAN", team_fatma_title: "General Manager, Kosmos Vize",
-            team_fevzi_name: "Fevzi Cem İz", team_fevzi_title: "General Manager, Kampüs Giyim",
-            team_tugce_name: "Müh. Tuğçe SARICA", team_tugce_title: "General Manager, ReziKyros",
-            team_hande_name: "Hande DERİN", team_hande_title: "General Coordinator, Burger King & Starbucks Franchises",
-            strategyTitle: "Our Strategic Vision",
-            strategyParagraph: "Our vision is to foster synergy between our diverse brands, driving innovation and sustainable growth. We are committed to excellence and expanding our global footprint while delivering exceptional value to our clients and partners worldwide.",
-            contactTitle: "Get In Touch",
-            contactSubtitle: "Feel free to reach out for projects and collaborations.",
-            contactButton: "Send an Email"
-        },
-        tr: {
-            slogan: "Avrupa'nın Gücü",
-            aboutTitle: "Hakkımızda",
-            aboutParagraph: "Merkezi Atina, Yunanistan'da bulunan KyroServices Global, tüm Avrupa ve Türkiye'de faaliyet gösteren dinamik bir çatı şirkettir. Çok çeşitli sektörlerde mükemmellik ve yenilik sunarak farklı uzmanlaşmış markalardan oluşan bir portföyü yönetiyoruz.",
-            address: "Leoforos Kifisias 123, Marousi, 151 24 Atina, Yunanistan",
-            brandsTitle: "Markalarımız ve Operasyonlarımız",
-            brand_history: "Kyros and Dimitri History Services🇬🇷 12 ülkede 73 ofisle faaliyet göstermektedir.<br>🇩🇪19 🇬🇷12 🇹🇷9 🇫🇷6 🇮🇹5 🇪🇸4 🇬🇧3 🇺🇸3 🇸🇪3 🇨🇭2 🇨🇾2 🇩🇰1<br><strong>Resmi NATO Partneri</strong>",
-            brand_pep: "Hızlı, güvenli ve modern çevrimiçi ödeme çözümleri sunan ve küresel varlığını sürekli genişleten bir elektronik para şirketi.",
-            brand_yunan: "Geleneksel Yunan ürünlerinin Türkiye pazarında satışını kolaylaştırarak, müşterilerin otantik Yunan lezzetlerinin tadını çıkarması için benzersiz bir platform sunar.",
-            brand_kampus: "Özellikle üniversite öğrencileri başta olmak üzere gençlere yönelik trend ve konforlu giyim ürünleri sunan bir moda markası.",
-            brand_rezi: "Türkiye ve uluslararası pazarlardaki yatırımcılar için yüksek kaliteli konut projelerine odaklanan bir gayrimenkul ve inşaat markası.",
-            brand_kosmos: "Yunanistan ve Schengen vize hizmetlerinde uzmanlaşmış, Türkiye'deki tek Yunanistan yetkili vize danışmanlık şirketi.",
-            opsTurkeyTitle: "Franchise Operasyonları",
-            opsTurkeyParagraph: "2 Burger King (Vadi İstanbul, Bodrum) şubesi ve Bodrum bölgesindeki tüm Starbucks mağazaları tarafımızca işletilmektedir.",
-            teamTitle: "Yönetim Kurulu",
-            team_kyros_name: "Kyros I. DUGAN", team_kyros_title: "Kurucu Sahip",
-            team_alissa_name: "Alissa KIRAKIS", team_alissa_title: "KyroServices Global Genel Direktörü",
-            team_gamze_name: "Gamze ÖZDEN", team_gamze_title: "KyroServices Türkiye & Yunandan Gelsin Genel Direktörü",
-            team_dimitri_name: "Dimitri LYANOS", team_dimitri_title: "K&D History Services Avrupa & ABD Genel Direktörü",
-            team_beyza_name: "Beyza ÇİMEN", team_beyza_title: "K&D History Services Türkiye Genel Direktörü",
-            team_sadio_name: "Mehmet Sadioğlu", team_sadio_title: "PeP Genel Müdürü",
-            team_fatma_name: "Fatma BAYSAN", team_fatma_title: "Kosmos Vize Genel Müdürü",
-            team_fevzi_name: "Fevzi Cem İz", team_fevzi_title: "Kampüs Giyim Genel Müdürü",
-            team_tugce_name: "Müh. Tuğçe SARICA", team_tugce_title: "ReziKyros Genel Müdürü",
-            team_hande_name: "Hande DERİN", team_hande_title: "Burger King & Starbucks Franchise Gn. Koordinatörü",
-            strategyTitle: "Stratejik Vizyonumuz",
-            strategyParagraph: "Vizyonumuz, farklı markalarımız arasında sinerji yaratarak inovasyonu ve sürdürülebilir büyümeyi teşvik etmektir. Müşterilerimize ve ortaklarımıza dünya çapında olağanüstü değer sunarken, mükemmelliğe ve küresel ayak izimizi genişletmeye kararlıyız.",
-            contactTitle: "Bize Ulaşın",
-            contactSubtitle: "Projeleriniz ve iş birlikleriniz için bize ulaşmaktan çekinmeyin.",
-            contactButton: "E-Posta Gönderin"
-        },
-        el: {
-            slogan: "Η Δύναμη της Ευρώπης",
-            aboutTitle: "Σχετικά με εμάς",
-            aboutParagraph: "Με έδρα την Αθήνα, Ελλάδα, η KyrosServices Global είναι μια δυναμική μητρική εταιρεία που δραστηριοποιείται σε όλη την Ευρώπη και την Τουρκία. Διαχειριζόμαστε ένα ποικίλο χαρτοφυλάκιο εξειδικευμένων εμπορικών σημάτων, προσφέροντας αριστεία και καινοτομία σε ένα ευρύ φάσμα κλάδων.",
-            address: "Λεωφόρος Κηφισίας 123, Μαρούσι, 151 24 Αθήνα, Ελλάδα",
-            brandsTitle: "Οι Μάρκες & οι Δραστηριότητές μας",
-            brand_history: "Η Kyros and Dimitri History Services🇬🇷 λειτουργεί με 73 γραφεία σε 12 χώρες.<br>🇩🇪19 🇬🇷12 🇹🇷9 🇫🇷6 🇮🇹5 🇪🇸4 🇬🇧3 🇺🇸3 🇸🇪3 🇨🇭2 🇨🇾2 🇩🇰1<br><strong>Επίσημος Εταίρος του ΝΑΤΟ</strong>",
-            brand_pep: "Μια εταιρεία ηλεκτρονικού χρήματος που προσφέρει γρήγορες, ασφαλείς και σύγχρονες λύσεις ηλεκτρονικών πληρωμών, επεκτείνοντας συνεχώς την παγκόσμια παρουσία της.",
-            brand_yunan: "Διευκολύνει την πώληση παραδοσιακών ελληνικών προϊόντων στην τουρκική αγορά, προσφέροντας μια μοναδική πλατφόρμα για τους πελάτες να απολαύσουν αυθεντικά ελληνικά αγαθά.",
-            brand_kampus: "Μια μάρκα μόδας που εστιάζει στην παροχή μοντέρνων και άνετων ρούχων για νέους, ειδικά φοιτητές πανεπιστημίου.",
-            brand_rezi: "Μια μάρκα ακινήτων και κατασκευών που εστιάζει σε πολυτελή οικιστικά έργα για επενδυτές στην Τουρκία και τις διεθνείς αγορές.",
-            brand_kosmos: "Η μόνη εξουσιοδοτημένη από την Ελλάδα εταιρεία συμβούλων για βίζες στην Τουρκία, που ειδικεύεται στις υπηρεσίες βίζας για την Ελλάδα και τη Σένγκεν.",
-            opsTurkeyTitle: "Δραστηριότητες Franchise",
-            opsTurkeyParagraph: "2 υποκαταστήματα Burger King (Vadi Istanbul, Bodrum) και όλα τα καταστήματα Starbucks στην περιοχή της Αλικαρνασσού λειτουργούν υπό τη διαχείρισή μας.",
-            teamTitle: "Το Διοικητικό μας Συμβούλιο",
-            team_kyros_name: "Kyros I. DUGAN", team_kyros_title: "Ιδρυτής & Ιδιοκτήτης",
-            team_alissa_name: "Alissa KIRAKIS", team_alissa_title: "Γενική Διευθύντρια, KyroServices Global",
-            team_gamze_name: "Gamze ÖZDEN", team_gamze_title: "Γενική Διευθύντρια, KyroServices Turkey & Yunandan Gelsin",
-            team_dimitri_name: "Dimitri LYANOS", team_dimitri_title: "Γενικός Διευθυντής, K&D History Services Ευρώπης & ΗΠΑ",
-            team_beyza_name: "Beyza ÇİMEN", team_beyza_title: "Γενική Διευθύντρια, K&D History Services Τουρκίας",
-            team_sadio_name: "Mehmet Sadioğlu", team_sadio_title: "Γενικός Διευθυντής, PeP",
-            team_fatma_name: "Fatma BAYSAN", team_fatma_title: "Γενική Διευθύντρια, Kosmos Vize",
-            team_fevzi_name: "Fevzi Cem İz", team_fevzi_title: "Γενικός Διευθυντής, Kampüs Giyim",
-            team_tugce_name: "Müh. Tuğçe SARICA", team_tugce_title: "Γενική Διευθύντρια, ReziKyros",
-            team_hande_name: "Hande DERİN", team_hande_title: "Γενική Συντονίστρια, Burger King & Starbucks Franchises",
-            strategyTitle: "Το Στρατηγικό μας Όραμα",
-            strategyParagraph: "Το όραμά μας είναι να προωθήσουμε τη συνέργεια μεταξύ των διαφόρων εμπορικών σημάτων μας, οδηγώντας στην καινοτομία και τη βιώσιμη ανάπτυξη. Δεσμευόμαστε στην αριστεία και στην επέκταση του παγκόσμιου αποτυπώματός μας, προσφέροντας εξαιρετική αξία στους πελάτες και τους συνεργάτες μας παγκοσμίως.",
-            contactTitle: "Επικοινωνήστε μαζί μας",
-            contactSubtitle: "Μη διστάσετε να επικοινωνήσετε μαζί μας για έργα και συνεργασίες.",
-            contactButton: "Αποστολή Email"
-        },
-        fr: {
-            slogan: "La Puissance de l'Europe",
-            aboutTitle: "À propos de nous",
-            aboutParagraph: "Basée à Athènes, en Grèce, KyroServices Global est une société mère dynamique opérant à travers l'Europe et la Turquie. Nous gérons un portefeuille diversifié de marques spécialisées, offrant l'excellence et l'innovation dans un large éventail d'industries.",
-            address: "Leoforos Kifisias 123, Marousi, 151 24 Athènes, Grèce",
-            brandsTitle: "Nos Marques & Opérations",
-            brand_history: "Kyros and Dimitri History Services🇬🇷 opère avec 73 bureaux dans 12 pays.<br>🇩🇪19 🇬🇷12 🇹🇷9 🇫🇷6 🇮🇹5 🇪🇸4 🇬🇧3 🇺🇸3 🇸🇪3 🇨🇭2 🇨🇾2 🇩🇰1<br><strong>Partenaire Officiel de l'OTAN</strong>",
-            brand_pep: "Une société de monnaie électronique offrant des solutions de paiement en ligne rapides, sécurisées et modernes, qui étend continuellement sa présence mondiale.",
-            brand_yunan: "Facilite la vente de produits grecs traditionnels sur le marché turc, offrant une plateforme unique aux clients pour savourer d'authentiques produits grecs.",
-            brand_kampus: "Une marque de mode axée sur la fourniture de vêtements tendance et confortables pour les jeunes, en particulier les étudiants universitaires.",
-            brand_rezi: "Une marque d'immobilier et de construction axée sur des projets résidentiels haut de gamme pour les investisseurs en Turquie et sur les marchés internationaux.",
-            brand_kosmos: "La seule société de conseil en visas autorisée par la Grèce en Turquie, spécialisée dans les services de visas pour la Grèce et l'espace Schengen.",
-            opsTurkeyTitle: "Opérations de Franchise",
-            opsTurkeyParagraph: "2 succursales Burger King (Vadi Istanbul, Bodrum) et tous les magasins Starbucks de la région de Bodrum sont exploités par nos soins.",
-            teamTitle: "Notre Conseil d'Administration",
-            team_kyros_name: "Kyros I. DUGAN", team_kyros_title: "Fondateur & Propriétaire",
-            team_alissa_name: "Alissa KIRAKIS", team_alissa_title: "Directrice Générale, KyroServices Global",
-            team_gamze_name: "Gamze ÖZDEN", team_gamze_title: "Directrice Générale, KyroServices Turquie & Yunandan Gelsin",
-            team_dimitri_name: "Dimitri LYANOS", team_dimitri_title: "Directeur Général, K&D History Services Europe & USA",
-            team_beyza_name: "Beyza ÇİMEN", team_beyza_title: "Directrice Générale, K&D History Services Turquie",
-            team_sadio_name: "Mehmet Sadioğlu", team_sadio_title: "Directeur Général, PeP",
-            team_fatma_name: "Fatma BAYSAN", team_fatma_title: "Directrice Générale, Kosmos Vize",
-            team_fevzi_name: "Fevzi Cem İz", team_fevzi_title: "Directeur Général, Kampüs Giyim",
-            team_tugce_name: "Müh. Tuğçe SARICA", team_tugce_title: "Directrice Générale, ReziKyros",
-            team_hande_name: "Hande DERİN", team_hande_title: "Coordinatrice Générale, Franchises Burger King & Starbucks",
-            strategyTitle: "Notre Vision Stratégique",
-            strategyParagraph: "Notre vision est de favoriser la synergie entre nos diverses marques, en stimulant l'innovation et la croissance durable. Nous nous engageons à l'excellence et à l'expansion de notre empreinte mondiale tout en offrant une valeur exceptionnelle à nos clients et partenaires du monde entier.",
-            contactTitle: "Contactez-nous",
-            contactSubtitle: "N'hésitez pas à nous contacter pour des projets et des collaborations.",
-            contactButton: "Envoyer un e-mail"
-        }
-    };
-    function changeLanguage(lang) {
-        document.documentElement.lang = lang;
-        document.querySelectorAll('.lang-switcher button').forEach(btn => btn.classList.remove('active'));
-        document.getElementById(`lang-${lang}`).classList.add('active');
-        const elements = document.querySelectorAll('[data-lang]');
-        elements.forEach(el => {
-            const key = el.getAttribute('data-lang');
-            if (translations[lang] && translations[lang][key]) {
-                el.innerHTML = translations[lang][key];
-            }
-        });
-    }
-    function revealOnScroll() {
-        const reveals = document.querySelectorAll('.reveal');
-        for (let i = 0; i < reveals.length; i++) {
-            const windowHeight = window.innerHeight;
-            const elementTop = reveals[i].getBoundingClientRect().top;
-            const elementVisible = 100;
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add('active');
-            }
-        }
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-        changeLanguage('en'); 
-        document.getElementById('year').textContent = new Date().getFullYear();
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); 
-    });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
