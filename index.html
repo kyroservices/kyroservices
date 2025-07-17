@@ -91,26 +91,38 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.4rem;
             border-radius: 50px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             z-index: 1000;
             display: flex;
-            gap: 0.8rem;
+            gap: 0.2rem;
         }
 
         .lang-switcher button {
-            background: none;
+            background: var(--light-color);
+            color: var(--primary-color);
             border: none;
-            font-size: 1.4rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
             cursor: pointer;
-            transition: transform 0.2s ease;
-            padding: 0;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            padding: 0.5rem 0.8rem;
+            border-radius: 50px;
+            min-width: 40px;
+            text-align: center;
         }
 
         .lang-switcher button:hover {
-            transform: scale(1.2);
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+        
+        .lang-switcher button.active {
+             background-color: var(--primary-color);
+             color: var(--white-color);
         }
 
         /* --- HERO BÖLÜMÜ --- */
@@ -186,7 +198,7 @@
             margin-right: 0.5rem;
         }
 
-        /* --- MARKA KARTLARI --- */
+        /* --- MARKA VE EKİP KARTLARI --- */
         .brands-grid, .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -226,9 +238,8 @@
         .brand-card h3 { color: var(--primary-color); margin-bottom: 1rem; }
         .brand-card p { color: var(--gray-color); flex-grow: 1; }
         
-        /* --- EKİP KARTLARI --- */
         .team-card h4 { color: var(--primary-color); margin-bottom: 0.5rem; }
-        .team-card p { color: var(--secondary-color); font-weight: 600; font-size: 0.9rem; }
+        .team-card .team-title { color: var(--secondary-color); font-weight: 600; font-size: 0.9rem; }
 
         /* --- İLETİŞİM BÖLÜMÜ --- */
         #iletisim { text-align: center; }
@@ -272,6 +283,9 @@
         
         /* --- RESPONSIVE TASARIM --- */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem; /* Mobilde kenar boşluğunu azalttık */
+            }
             h2 { font-size: 2.2rem; }
             .hero h1 { font-size: 3rem; }
             .hero .slogan { font-size: 1rem; }
@@ -281,10 +295,10 @@
 <body>
     
     <div class="lang-switcher">
-        <button onclick="changeLanguage('en')" title="English">🇬🇧</button>
-        <button onclick="changeLanguage('tr')" title="Türkçe">🇹🇷</button>
-        <button onclick="changeLanguage('el')" title="Ελληνικά">🇬🇷</button>
-        <button onclick="changeLanguage('fr')" title="Français">🇫🇷</button>
+        <button id="lang-en" onclick="changeLanguage('en')" title="English">EN</button>
+        <button id="lang-tr" onclick="changeLanguage('tr')" title="Türkçe">TR</button>
+        <button id="lang-el" onclick="changeLanguage('el')" title="Ελληνικά">EL</button>
+        <button id="lang-fr" onclick="changeLanguage('fr')" title="Français">FR</button>
     </div>
 
     <header class="hero">
@@ -362,16 +376,16 @@
                     <h2 data-lang="teamTitle"></h2>
                 </div>
                 <div class="team-grid">
-                    <div class="team-card reveal"><h4 data-lang="team_kyros_name"></h4><p data-lang="team_kyros_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_alissa_name"></h4><p data-lang="team_alissa_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_gamze_name"></h4><p data-lang="team_gamze_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_dimitri_name"></h4><p data-lang="team_dimitri_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_beyza_name"></h4><p data-lang="team_beyza_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_sadio_name"></h4><p data-lang="team_sadio_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_fatma_name"></h4><p data-lang="team_fatma_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_fevzi_name"></h4><p data-lang="team_fevzi_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_tugce_name"></h4><p data-lang="team_tugce_title"></p></div>
-                    <div class="team-card reveal"><h4 data-lang="team_hande_name"></h4><p data-lang="team_hande_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_kyros_name"></h4><p class="team-title" data-lang="team_kyros_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_alissa_name"></h4><p class="team-title" data-lang="team_alissa_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_gamze_name"></h4><p class="team-title" data-lang="team_gamze_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_dimitri_name"></h4><p class="team-title" data-lang="team_dimitri_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_beyza_name"></h4><p class="team-title" data-lang="team_beyza_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_sadio_name"></h4><p class="team-title" data-lang="team_sadio_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_fatma_name"></h4><p class="team-title" data-lang="team_fatma_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_fevzi_name"></h4><p class="team-title" data-lang="team_fevzi_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_tugce_name"></h4><p class="team-title" data-lang="team_tugce_title"></p></div>
+                    <div class="team-card reveal"><h4 data-lang="team_hande_name"></h4><p class="team-title" data-lang="team_hande_title"></p></div>
                 </div>
             </div>
         </section>
@@ -535,6 +549,12 @@
     // --- DİL DEĞİŞTİRME FONKSİYONU ---
     function changeLanguage(lang) {
         document.documentElement.lang = lang;
+        
+        // Aktif butonu ayarla
+        document.querySelectorAll('.lang-switcher button').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(`lang-${lang}`).classList.add('active');
+
+        // Metinleri çevir
         const elements = document.querySelectorAll('[data-lang]');
         elements.forEach(el => {
             const key = el.getAttribute('data-lang');
@@ -550,7 +570,7 @@
         for (let i = 0; i < reveals.length; i++) {
             const windowHeight = window.innerHeight;
             const elementTop = reveals[i].getBoundingClientRect().top;
-            const elementVisible = 100; // Daha erken tetiklenmesi için düşürüldü
+            const elementVisible = 100;
 
             if (elementTop < windowHeight - elementVisible) {
                 reveals[i].classList.add('active');
@@ -560,13 +580,8 @@
 
     // --- SAYFA YÜKLENDİĞİNDE ÇALIŞACAK KODLAR ---
     document.addEventListener('DOMContentLoaded', () => {
-        const userLang = navigator.language.slice(0, 2);
-        const supportedLangs = ['en', 'tr', 'el', 'fr'];
-        if (supportedLangs.includes(userLang)) {
-            changeLanguage(userLang);
-        } else {
-            changeLanguage('en'); // Varsayılan dil
-        }
+        // Düzeltme: Sayfayı her zaman İngilizce başlat
+        changeLanguage('en'); 
         
         document.getElementById('year').textContent = new Date().getFullYear();
         
