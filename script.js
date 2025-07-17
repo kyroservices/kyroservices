@@ -1,12 +1,13 @@
 // --- script.js ---
 document.addEventListener('DOMContentLoaded', () => {
     initializePage();
-    if (document.getElementById('appointmentForm')) {
+    if (document.getElementById('appointmentForm') || document.getElementById('careerForm')) {
         initializeForm();
     }
 });
 
 function initializePage() {
+    document.body.classList.remove('fade-out');
     changeLanguage('en');
     const yearSpan = document.getElementById('year');
     if(yearSpan) yearSpan.textContent = new Date().getFullYear();
@@ -22,6 +23,31 @@ function initializePage() {
     if (closeMenu) {
         closeMenu.addEventListener('click', () => overlayMenu.classList.remove('open'));
     }
+    
+    const header = document.querySelector('.main-header');
+    if(header){
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+
+    const navLinks = document.querySelectorAll('a:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"])');
+    navLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            const href = link.getAttribute('href');
+            if (href && href !== '#') {
+                e.preventDefault();
+                document.body.classList.add('fade-out');
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 400);
+            }
+        });
+    });
 }
 
 function revealOnScroll() {
@@ -63,9 +89,11 @@ function changeLanguage(lang) {
 
 function initializeForm() {
     const countrySelect = document.getElementById('countrySelect');
-    populateCountryDropdown();
-    updateCityDropdown();
-    countrySelect.addEventListener('change', updateCityDropdown);
+    if(countrySelect){
+        populateCountryDropdown();
+        updateCityDropdown();
+        countrySelect.addEventListener('change', updateCityDropdown);
+    }
 }
 
 function populateCountryDropdown() {
@@ -105,7 +133,6 @@ function updateCityDropdown() {
     }
 }
 
-// --- DİL VE ŞEHİR VERİLERİ (TAMAMI EKLENDİ) ---
 const cityData = {
     de: { name: { en: 'Germany', tr: 'Almanya', el: 'Γερμανία', fr: 'Allemagne' }, cities: [ { code: 'ber', name: { en: 'Berlin', tr: 'Berlin', el: 'Βερολίνο', fr: 'Berlin' } }, { code: 'mun', name: { en: 'Munich', tr: 'Münih', el: 'Μόναχο', fr: 'Munich' } }, { code: 'fra', name: { en: 'Frankfurt', tr: 'Frankfurt', el: 'Φρανκφούρτη', fr: 'Francfort' } }, { code: 'ham', name: { en: 'Hamburg', tr: 'Hamburg', el: 'Αμβούργο', fr: 'Hambourg' } } ] },
     gr: { name: { en: 'Greece', tr: 'Yunanistan', el: 'Ελλάδα', fr: 'Grèce' }, cities: [ { code: 'ath', name: { en: 'Athens', tr: 'Atina', el: 'Αθήνα', fr: 'Athènes' } }, { code: 'the', name: { en: 'Thessaloniki', tr: 'Selanik', el: 'Θεσσαλονίκη', fr: 'Thessalonique' } }, { code: 'pat', name: { en: 'Patras', tr: 'Patra', el: 'Πάτρα', fr: 'Patras' } } ] },
@@ -120,24 +147,27 @@ const cityData = {
     cy: { name: { en: 'Cyprus', tr: 'Kıbrıs', el: 'Κύπρος', fr: 'Chypre' }, cities: [ { code: 'nic', name: { en: 'Nicosia', tr: 'Lefkoşa', el: 'Λευκωσία', fr: 'Nicosie' } } ] },
     dk: { name: { en: 'Denmark', tr: 'Danimarka', el: 'Δανία', fr: 'Danemark' }, cities: [ { code: 'cop', name: { en: 'Copenhagen', tr: 'Kopenhag', el: 'Κοπεγχάγη', fr: 'Copenhague' } } ] }
 };
-const translations = { /* ... Tüm dil çevirileri buraya gelecek (yer kaplamaması için bir sonraki dosyada birleştirildi) ... */ };
-Object.assign(translations, {
+const translations = {
     en: {
         slogan: "Power of Europe", aboutTitle: "About Us", aboutParagraph: "Headquartered in Athens, Greece, KyroServices Global is a dynamic parent company operating throughout Europe and Turkey. We manage a diverse portfolio of specialized brands, delivering excellence and innovation across a wide range of industries.", address: "Leoforos Kifisias 123, Marousi, 151 24 Athens, Greece", brandsTitle: "Our Brands & Operations", opsTurkeyTitle: "Franchise Operations", opsTurkeyParagraph: "2 Burger King branches (Vadi Istanbul, Bodrum) and all Starbucks stores in the Bodrum region are operated by us.", teamTitle: "Our Board of Directors", team_kyros_name: "Kyros I. DUGAN", team_kyros_title: "Founder & Owner", team_alissa_name: "Alissa KIRAKIS", team_alissa_title: "General Director, KyroServices Global", team_gamze_name: "Gamze ÖZDEN", team_gamze_title: "General Director, KyroServices Turkey & Yunandan Gelsin", team_dimitri_name: "Dimitri LYANOS", team_dimitri_title: "General Director, K&D History Services Europe & USA", team_beyza_name: "Beyza ÇİMEN", team_beyza_title: "General Director, K&D History Services Turkey", team_sadio_name: "Mehmet Sadioğlu", team_sadio_title: "General Manager, PeP", team_fatma_name: "Fatma BAYSAN", team_fatma_title: "General Manager, Kosmos Vize", team_fevzi_name: "Fevzi Cem İz", team_fevzi_title: "General Manager, Kampüs Giyim", team_tugce_name: "Müh. Tuğçe SARICA", team_tugce_title: "General Manager, ReziKyros", team_hande_name: "Hande DERİN", team_hande_title: "General Coordinator, Burger King & Starbucks Franchises", strategyTitle: "Our Strategic Vision", strategyParagraph: "Our vision is to foster synergy between our diverse brands, driving innovation and sustainable growth. We are committed to excellence and expanding our global footprint while delivering exceptional value to our clients and partners worldwide.", contactTitle: "Get In Touch", contactSubtitle: "Feel free to reach out for projects and collaborations.", contactButton: "Send an Email",
-        menu_home: "Home", menu_kd: "K&D History Services",
+        menu_home: "Home", menu_about: "About Us", menu_team: "Board", menu_brands: "Our Brands", menu_career: "Career", menu_contact: "Contact", menu_kd: "K&D History Services", menu_pep: "PeP", menu_yunan: "Yunandan Gelsin", menu_kampus: "Kampüs Giyim", menu_rezi: "ReziKyros", menu_kosmos: "Kosmos Vize",
         kd_presence_title: "Global Presence", kd_presence_text: "Operating with <strong>73 offices in 12 countries</strong>, our reach is a testament to our expertise and trusted partnerships.", kd_partner_title: "NATO Partner", kd_partner_text: "We are proud to be an <strong>Official Partner of NATO</strong>, providing critical historical and geopolitical consultancy.",
         kd_expertise_title: "Our Expertise", kd_service1_title: "Historical Consultancy", kd_service1_desc: "Providing strategic insights for governments and corporations based on historical data and trend analysis.", kd_service2_title: "Geopolitical Analysis", kd_service2_desc: "Offering in-depth risk analysis and forecasting for international operations and investments.", kd_service3_title: "Archive Management", kd_service3_desc: "Digitalization and management of governmental and corporate historical archives.",
         form_title: "Request an Appointment", form_name: "Name", form_surname: "Surname", form_email: "Email Address", form_phone: "Phone Number (Optional)", form_country: "Country of Operation", form_city: "City", form_submit: "Send Request",
-        thank_you_title: "Thank You!", thank_you_text: "Your appointment request has been successfully received. We will contact you as soon as possible.", back_home: "Back to Home"
+        thank_you_title: "Thank You!", thank_you_text: "Your request has been successfully received. We will contact you as soon as possible.", back_home: "Back to Home",
+        page_not_found: "Page Not Found", page_not_found_text: "The page you are looking for might have been removed or is temporarily unavailable.",
+        privacy_policy: "Privacy Policy", terms_of_use: "Terms of Use"
     },
     tr: {
         slogan: "Avrupa'nın Gücü", aboutTitle: "Hakkımızda", aboutParagraph: "Merkezi Atina, Yunanistan'da bulunan KyroServices Global, tüm Avrupa ve Türkiye'de faaliyet gösteren dinamik bir çatı şirkettir. Çok çeşitli sektörlerde mükemmellik ve yenilik sunarak farklı uzmanlaşmış markalardan oluşan bir portföyü yönetiyoruz.", address: "Leoforos Kifisias 123, Marousi, 151 24 Atina, Yunanistan", brandsTitle: "Markalarımız ve Operasyonlarımız", opsTurkeyTitle: "Franchise Operasyonları", opsTurkeyParagraph: "2 Burger King (Vadi İstanbul, Bodrum) şubesi ve Bodrum bölgesindeki tüm Starbucks mağazaları tarafımızca işletilmektedir.", teamTitle: "Yönetim Kurulu", team_kyros_name: "Kyros I. DUGAN", team_kyros_title: "Kurucu Sahip", team_alissa_name: "Alissa KIRAKIS", team_alissa_title: "KyroServices Global Genel Direktörü", team_gamze_name: "Gamze ÖZDEN", team_gamze_title: "KyroServices Türkiye & Yunandan Gelsin Genel Direktörü", team_dimitri_name: "Dimitri LYANOS", team_dimitri_title: "K&D History Services Avrupa & ABD Genel Direktörü", team_beyza_name: "Beyza ÇİMEN", team_beyza_title: "K&D History Services Türkiye Genel Direktörü", team_sadio_name: "Mehmet Sadioğlu", team_sadio_title: "PeP Genel Müdürü", team_fatma_name: "Fatma BAYSAN", team_fatma_title: "Kosmos Vize Genel Müdürü", team_fevzi_name: "Fevzi Cem İz", team_fevzi_title: "Kampüs Giyim Genel Müdürü", team_tugce_name: "Müh. Tuğçe SARICA", team_tugce_title: "ReziKyros Genel Müdürü", team_hande_name: "Hande DERİN", team_hande_title: "Burger King & Starbucks Franchise Gn. Koordinatörü", strategyTitle: "Stratejik Vizyonumuz", strategyParagraph: "Vizyonumuz, farklı markalarımız arasında sinerji yaratarak inovasyonu ve sürdürülebilir büyümeyi teşvik etmektir. Müşterilerimize ve ortaklarımıza dünya çapında olağanüstü değer sunarken, mükemmelliğe ve küresel ayak izimizi genişletmeye kararlıyız.", contactTitle: "Bize Ulaşın", contactSubtitle: "Projeleriniz ve iş birlikleriniz için bize ulaşmaktan çekinmeyin.", contactButton: "E-Posta Gönderin",
-        menu_home: "Ana Sayfa", menu_kd: "K&D History Services",
+        menu_home: "Ana Sayfa", menu_about: "Hakkımızda", menu_team: "Yönetim", menu_brands: "Markalarımız", menu_career: "Kariyer", menu_contact: "İletişim", menu_kd: "K&D History Services", menu_pep: "PeP", menu_yunan: "Yunandan Gelsin", menu_kampus: "Kampüs Giyim", menu_rezi: "ReziKyros", menu_kosmos: "Kosmos Vize",
         kd_presence_title: "Global Varlık", kd_presence_text: "<strong>12 ülkede 73 ofis</strong> ile faaliyet gösteren ağımız, uzmanlığımızın ve güvenilir ortaklıklarımızın bir kanıtıdır.", kd_partner_title: "NATO Partneri", kd_partner_text: "Kritik tarihsel ve jeopolitik danışmanlık sağlayan bir <strong>Resmi NATO Partneri</strong> olmaktan gurur duyuyoruz.",
         kd_expertise_title: "Uzmanlık Alanlarımız", kd_service1_title: "Tarihsel Danışmanlık", kd_service1_desc: "Tarihsel verilere ve trend analizlerine dayanarak hükümetler ve şirketler için stratejik öngörüler sağlama.", kd_service2_title: "Jeopolitik Analiz", kd_service2_desc: "Uluslararası operasyonlar ve yatırımlar için derinlemesine risk analizi ve tahminler sunma.", kd_service3_title: "Arşiv Yönetimi", kd_service3_desc: "Hükümet ve şirketlerin tarihsel arşivlerinin dijitalleştirilmesi ve yönetimi.",
         form_title: "Randevu Talep Edin", form_name: "Ad", form_surname: "Soyad", form_email: "E-posta Adresi", form_phone: "Telefon Numarası (İsteğe Bağlı)", form_country: "Operasyon Ülkesi", form_city: "Şehir", form_submit: "Talebi Gönder",
-        thank_you_title: "Teşekkür Ederiz!", thank_you_text: "Randevu talebiniz başarıyla alınmıştır. En kısa sürede sizinle iletişime geçeceğiz.", back_home: "Ana Sayfaya Dön"
+        thank_you_title: "Teşekkür Ederiz!", thank_you_text: "Talebiniz başarıyla alınmıştır. En kısa sürede sizinle iletişime geçeceğiz.", back_home: "Ana Sayfaya Dön",
+        page_not_found: "Sayfa Bulunamadı", page_not_found_text: "Aradığınız sayfa kaldırılmış veya geçici olarak kullanılamıyor olabilir.",
+        privacy_policy: "Gizlilik Politikası", terms_of_use: "Kullanım Koşulları"
     },
     el: { /* Yunanca Çeviriler */ },
     fr: { /* Fransızca Çeviriler */ }
-});
+};
