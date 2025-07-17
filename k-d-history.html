@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+<div class="page-wrapper">
     <header class="main-nav">
         <div class="lang-switcher">
             <button id="lang-en" onclick="changeLanguage('en')" title="English">EN</button>
@@ -35,23 +36,32 @@
         <div class="hero-content reveal">
             <img src="https://kyrosil.eu/wp-content/uploads/2025/07/B4D4EA2D-CF1B-4B18-AD65-EEF2D0DF0CCA_L0_001-16_01_2024-21_59_29-300x165.jpg" alt="K&D History Services Logo" class="hero-logo" style="max-width: 250px;">
             <h1>Kyros and Dimitri History Services</h1>
-            <p class="slogan">NATO OFFICIAL PARTNER</p>
         </div>
     </header>
 
     <main>
-        <section id="hizmetler">
+        <section id="presence">
             <div class="container reveal">
-                <div class="section-title"><h2 data-lang="kd_services_title"></h2></div>
+                <div class="section-title"><h2 data-lang="kd_presence_title"></h2></div>
+                <div class="presence-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+                     <div class="presence-card"><div class="icon"><i class="fa-solid fa-map-marked-alt"></i></div><p data-lang="kd_presence_text"></p></div>
+                     <div class="presence-card"><div class="icon"><i class="fa-solid fa-shield-halved"></i></div><h4 data-lang="kd_partner_title"></h4><p data-lang="kd_partner_text"></p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expertise" class="dark-section">
+            <div class="container reveal">
+                <div class="section-title"><h2 data-lang="kd_expertise_title"></h2></div>
                 <div class="services-grid">
                     <div class="service-card"><div class="icon"><i class="fa-solid fa-landmark"></i></div><h4 data-lang="kd_service1_title"></h4><p data-lang="kd_service1_desc"></p></div>
-                    <div class="service-card"><div class="icon"><i class="fa-solid fa-globe-europe"></i></div><h4 data-lang="kd_service2_title"></h4><p data-lang="kd_service2_desc"></p></div>
+                    <div class="service-card"><div class="icon"><i class="fa-solid fa-globe-americas"></i></div><h4 data-lang="kd_service2_title"></h4><p data-lang="kd_service2_desc"></p></div>
                     <div class="service-card"><div class="icon"><i class="fa-solid fa-archive"></i></div><h4 data-lang="kd_service3_title"></h4><p data-lang="kd_service3_desc"></p></div>
                 </div>
             </div>
         </section>
 
-        <section id="randevu" class="dark-section">
+        <section id="randevu">
             <div class="container reveal">
                 <div class="section-title"><h2 data-lang="form_title"></h2></div>
                 <div class="form-container">
@@ -61,8 +71,8 @@
                             <div class="form-group"><label for="surname" data-lang="form_surname"></label><input type="text" id="surname" name="surname" required></div>
                             <div class="form-group"><label for="email" data-lang="form_email"></label><input type="email" id="email" name="email" required></div>
                             <div class="form-group"><label for="phone" data-lang="form_phone"></label><input type="tel" id="phone" name="phone"></div>
-                            <div class="form-group"><label for="countrySelect" data-lang="form_country"></label><select id="countrySelect" name="country"></select></div>
-                            <div class="form-group"><label for="citySelect" data-lang="form_city"></label><select id="citySelect" name="city"></select></div>
+                            <div class="form-group"><label for="countrySelect" data-lang="form_country"></label><select id="countrySelect" name="country" required></select></div>
+                            <div class="form-group"><label for="citySelect" data-lang="form_city"></label><select id="citySelect" name="city" required></select></div>
                             <div class="form-group full-width" style="text-align: center;"><button type="submit" class="btn" data-lang="form_submit"></button></div>
                         </div>
                     </form>
@@ -70,10 +80,10 @@
             </div>
         </section>
 
-        <section id="iletisim-detay">
+        <section id="iletisim-detay" class="dark-section">
             <div class="container reveal" style="text-align:center;">
                 <div class="section-title"><h2 data-lang="contactTitle"></h2></div>
-                <p><a href="mailto:info@kyrosanddimitri.eu">info@kyrosanddimitri.eu</a></p>
+                <p style="font-size: 1.2rem;"><a href="mailto:info@kyrosanddimitri.eu">info@kyrosanddimitri.eu</a></p>
                 <div class="social-links" style="margin-top: 1rem;">
                     <a href="https://www.instagram.com/kyrosanddimitrihistoryservices" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -83,9 +93,11 @@
     
     <footer>
         <div class="container">
-            <p>&copy; <span id="year"></span> Kyros and Dimitri History Services | A KyroServices Global Company</p>
+            <p><a href="index.html" style="color: var(--gray-color);">A KyroServices Global Company</a></p>
+            <p>&copy; <span id="year"></span> Kyros and Dimitri History Services</p>
         </div>
     </footer>
     <script src="script.js"></script>
+</div>
 </body>
 </html>
