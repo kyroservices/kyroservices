@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PeP - KyroServices Global</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +10,23 @@
 </head>
 <body>
 <div class="page-wrapper">
+    <header class="main-header">
+        <div class="header-container">
+            <div class="nav-left"></div>
+            <div class="center-logo"><a href="index.html"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/290299_a04d46893aa7d9c461374e6ce89f8267-11_7_2022-10_38_08-AM-300x300.png?crop=1" alt="KyroServices Global Logo"></a></div>
+            <div class="nav-right">
+                <div class="lang-switcher">
+                     <button id="lang-en" onclick="changeLanguage('en')" title="English">EN</button>
+                     <button id="lang-tr" onclick="changeLanguage('tr')" title="Türkçe">TR</button>
+                     <button id="lang-el" onclick="changeLanguage('el')" title="Ελληνικά">EL</button>
+                     <button id="lang-fr" onclick="changeLanguage('fr')" title="Français">FR</button>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+     <div class="overlay-menu" id="overlay-menu">
+        </div>
     <main>
         <header class="page-header reveal">
             <img src="https://kyrosil.eu/wp-content/uploads/2025/07/C9E56B75-CA41-4CC8-8D69-58CE4D342672_L0_001-28.01.2023-12_05_42-300x79.png" alt="PeP Logo" class="hero-logo" style="max-width: 250px; height: auto;">
@@ -20,19 +35,25 @@
         <section>
             <div class="container reveal content-text">
                 <p data-lang="pep_intro"></p>
-                <h3 data-lang="pep_features_title" style="margin-top: 2rem;"></h3>
-                <ul>
-                    <li data-lang="pep_feature1"></li>
-                    <li data-lang="pep_feature2"></li>
-                    <li data-lang="pep_feature3"></li>
-                    <li data-lang="pep_feature4"></li>
-                </ul>
+                <h3 data-lang="pep_features_title" style="margin-top: 2rem; text-align: center;"></h3>
+                <div class="services-grid" style="margin-top: 2rem;">
+                    <div class="service-card"><div class="icon"><i class="fas fa-coins"></i></div><p data-lang="pep_feature1"></p></div>
+                    <div class="service-card"><div class="icon"><i class="fas fa-globe"></i></div><p data-lang="pep_feature2"></p></div>
+                    <div class="service-card"><div class="icon"><i class="fas fa-credit-card"></i></div><p data-lang="pep_feature3"></p></div>
+                    <div class="service-card"><div class="icon"><i class="fas fa-gem"></i></div><p data-lang="pep_feature4"></p></div>
+                </div>
                 <div style="text-align:center; margin-top:3rem;">
                      <a href="mailto:destek@peple.com.tr" class="btn" data-lang="pep_contact_button"></a>
                 </div>
             </div>
         </section>
     </main>
+    <footer>
+        <div class="container">
+            <p><a href="index.html" style="color: var(--gray-color);">A KyroServices Global Company</a></p>
+            <p>&copy; <span id="year"></span> PeP</p>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </div>
 </body>
