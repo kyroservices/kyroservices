@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kosmos Vize - KyroServices Global</title>
     <link rel="stylesheet" href="style.css">
-    </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
 <body>
 <div class="page-wrapper">
     <header class="main-header">
@@ -24,7 +28,25 @@
         </div>
     </header>
      <div class="overlay-menu" id="overlay-menu">
-        </div>
+        <button class="close-menu" id="close-menu" aria-label="Close Menu">&times;</button>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-lang="menu_home"></a></li>
+                <li><a href="hakkimizda.html" data-lang="menu_about"></a></li>
+                <li><a href="yonetim.html" data-lang="menu_team"></a></li>
+                <hr style="border-color: rgba(255,255,255,0.2);">
+                <li><a href="kd-history.html" data-lang="menu_kd"></a></li>
+                <li><a href="pep.html" data-lang="menu_pep"></a></li>
+                <li><a href="yunandan-gelsin.html" data-lang="menu_yunan"></a></li>
+                <li><a href="kampus-giyim.html" data-lang="menu_kampus"></a></li>
+                <li><a href="rezikyros.html" data-lang="menu_rezi"></a></li>
+                <li><a href="kosmos-vize.html" data-lang="menu_kosmos"></a></li>
+                <hr style="border-color: rgba(255,255,255,0.2);">
+                <li><a href="kariyer.html" data-lang="menu_career"></a></li>
+                <li><a href="iletisim.html" data-lang="menu_contact"></a></li>
+            </ul>
+        </nav>
+    </div>
     <main>
         <header class="page-header reveal">
             <img src="https://kyrosil.eu/wp-content/uploads/2025/07/7_4_2022-5_57_28-AM-150x99.png" alt="Kosmos Vize Logo" class="hero-logo">
@@ -55,11 +77,17 @@
                 <div class="section-title"><h2 data-lang="kosmos_offices_title"></h2></div>
                 <p style="text-align:center;">İstanbul (Merkez), Ankara, İzmir, Bodrum, Edirne, Çorlu ve Fethiye'deki ofislerimizle hizmetinizdeyiz. Detaylı adres ve iletişim bilgileri için bize ulaşın.</p>
                 <div style="text-align:center; margin-top:2rem;">
-                    <a href="mailto:info@kosmosvize.com" class="btn" data-lang="contactButton"></a>
+                    <a href="mailto:info@kosmosvize.com" class="btn" data-lang="contactButton">Bize Ulaşın</a>
                 </div>
             </div>
         </section>
     </main>
+    <footer>
+        <div class="container">
+            <p><a href="index.html" style="color: var(--gray-color);">A KyroServices Global Company</a></p>
+            <p>&copy; <span id="year"></span> Kosmos Vize</p>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </div>
 </body>
