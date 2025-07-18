@@ -6,6 +6,23 @@
     </head>
 <body>
 <div class="page-wrapper">
+    <header class="main-header">
+        <div class="header-container">
+            <div class="nav-left"></div>
+            <div class="center-logo"><a href="index.html"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/290299_a04d46893aa7d9c461374e6ce89f8267-11_7_2022-10_38_08-AM-300x300.png?crop=1" alt="KyroServices Global Logo"></a></div>
+            <div class="nav-right">
+                <div class="lang-switcher">
+                     <button id="lang-en" onclick="changeLanguage('en')" title="English">EN</button>
+                     <button id="lang-tr" onclick="changeLanguage('tr')" title="Türkçe">TR</button>
+                     <button id="lang-el" onclick="changeLanguage('el')" title="Ελληνικά">EL</button>
+                     <button id="lang-fr" onclick="changeLanguage('fr')" title="Français">FR</button>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+     <div class="overlay-menu" id="overlay-menu">
+        </div>
     <main>
         <header class="page-header reveal">
             <img src="https://kyrosil.eu/wp-content/uploads/2025/07/7_4_2022-5_57_28-AM-150x99.png" alt="Kosmos Vize Logo" class="hero-logo">
@@ -21,11 +38,11 @@
                     </div>
                      <div class="presence-card">
                         <h4 data-lang="kosmos_services_title"></h4>
-                        <ul style="text-align:left;">
-                           <li data-lang="kosmos_service1"></li>
-                           <li data-lang="kosmos_service2"></li>
-                           <li data-lang="kosmos_service3"></li>
-                           <li data-lang="kosmos_service4"></li>
+                        <ul style="text-align:left; list-style-type: none; padding-left: 0;">
+                           <li style="margin-bottom: 0.5rem;"><i class="fas fa-passport" style="color:var(--secondary-color); margin-right: 10px;"></i><span data-lang="kosmos_service1"></span></li>
+                           <li style="margin-bottom: 0.5rem;"><i class="fas fa-flag" style="color:var(--secondary-color); margin-right: 10px;"></i><span data-lang="kosmos_service2"></span></li>
+                           <li style="margin-bottom: 0.5rem;"><i class="fas fa-calendar-alt" style="color:var(--secondary-color); margin-right: 10px;"></i><span data-lang="kosmos_service3"></span></li>
+                           <li><i class="fas fa-search-location" style="color:var(--secondary-color); margin-right: 10px;"></i><span data-lang="kosmos_service4"></span></li>
                         </ul>
                     </div>
                 </div>
@@ -34,7 +51,7 @@
         <section class="dark-section">
             <div class="container reveal">
                 <div class="section-title"><h2 data-lang="kosmos_offices_title"></h2></div>
-                <p style="text-align:center;">İstanbul (Merkez), Ankara, İzmir, Bodrum, Edirne, Çorlu ve Fethiye'deki ofislerimizle hizmetinizdeyiz.</p>
+                <p style="text-align:center;">İstanbul (Merkez), Ankara, İzmir, Bodrum, Edirne, Çorlu ve Fethiye'deki ofislerimizle hizmetinizdeyiz. Detaylı adres ve iletişim bilgileri için bize ulaşın.</p>
                 <div style="text-align:center; margin-top:2rem;">
                     <a href="mailto:info@kosmosvize.com" class="btn" data-lang="contactButton"></a>
                 </div>
