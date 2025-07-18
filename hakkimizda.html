@@ -13,18 +13,20 @@
 <body>
 <div class="page-wrapper">
     <header class="main-header">
-        <div class="center-logo"><a href="index.html"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/290299_a04d46893aa7d9c461374e6ce89f8267-11_7_2022-10_38_08-AM-300x300.png?crop=1" alt="KyroServices Global Logo"></a></div>
-        <div class="nav-right">
-            <div class="lang-switcher">
-                 <button id="lang-en" onclick="changeLanguage('en')" title="English">EN</button>
-                 <button id="lang-tr" onclick="changeLanguage('tr')" title="Türkçe">TR</button>
-                 <button id="lang-el" onclick="changeLanguage('el')" title="Ελληνικά">EL</button>
-                 <button id="lang-fr" onclick="changeLanguage('fr')" title="Français">FR</button>
+        <div class="header-container">
+            <div class="nav-left"></div>
+            <div class="center-logo"><a href="index.html"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/290299_a04d46893aa7d9c461374e6ce89f8267-11_7_2022-10_38_08-AM-300x300.png?crop=1" alt="KyroServices Global Logo"></a></div>
+            <div class="nav-right">
+                <div class="lang-switcher">
+                     <button id="lang-en" onclick="changeLanguage('en')" title="English">EN</button>
+                     <button id="lang-tr" onclick="changeLanguage('tr')" title="Türkçe">TR</button>
+                     <button id="lang-el" onclick="changeLanguage('el')" title="Ελληνικά">EL</button>
+                     <button id="lang-fr" onclick="changeLanguage('fr')" title="Français">FR</button>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu"><i class="fa-solid fa-bars"></i></button>
             </div>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu"><i class="fa-solid fa-bars"></i></button>
         </div>
     </header>
-
      <div class="overlay-menu" id="overlay-menu">
         <button class="close-menu" id="close-menu" aria-label="Close Menu">&times;</button>
         <nav>
@@ -32,6 +34,14 @@
                 <li><a href="index.html" data-lang="menu_home"></a></li>
                 <li><a href="hakkimizda.html" data-lang="menu_about"></a></li>
                 <li><a href="yonetim.html" data-lang="menu_team"></a></li>
+                <hr style="border-color: rgba(255,255,255,0.2);">
+                <li><a href="kd-history.html" data-lang="menu_kd"></a></li>
+                <li><a href="pep.html" data-lang="menu_pep"></a></li>
+                <li><a href="yunandan-gelsin.html" data-lang="menu_yunan"></a></li>
+                <li><a href="kampus-giyim.html" data-lang="menu_kampus"></a></li>
+                <li><a href="rezikyros.html" data-lang="menu_rezi"></a></li>
+                <li><a href="kosmos-vize.html" data-lang="menu_kosmos"></a></li>
+                <hr style="border-color: rgba(255,255,255,0.2);">
                 <li><a href="kariyer.html" data-lang="menu_career"></a></li>
                 <li><a href="iletisim.html" data-lang="menu_contact"></a></li>
             </ul>
@@ -39,24 +49,24 @@
     </div>
 
     <header class="page-header reveal">
-        <h1 data-lang="about_page_title">Hakkımızda</h1>
+        <h1 data-lang="about_page_title"></h1>
     </header>
     
     <main>
         <section>
             <div class="container reveal">
                 <div class="content-text">
-                    <h3 data-lang="about_section1_title">Kuruluş ve Vizyon</h3>
-                    <p data-lang="about_section1_p1">KyroServices Global, kurucumuz Kyros I. Dugan'ın vizyonuyla, sadece farklı sektörlerde faaliyet gösteren bir şirketler topluluğu olmakla kalmayıp, aynı zamanda Avrupa ve Türkiye arasında ekonomik ve kültürel bir köprü kurma amacıyla 2012 yılında Atina'da kurulmuştur. Tarihin derinliklerinden aldığı ilhamı geleceğin teknolojileriyle birleştiren şirketimiz, en başından beri her girdiği sektörde standartları yeniden belirlemeyi hedeflemiştir.</p>
-                    <p data-lang="about_section1_p2">Başlangıçta tarihsel danışmanlık ve vize hizmetleri gibi niş alanlarda başlayan yolculuğumuz, kısa sürede tekstil, gıda, inşaat ve finansal teknolojiler gibi geniş bir yelpazeye yayılarak uluslararası bir güç haline gelmiştir.</p>
+                    <h3 data-lang="about_section1_title"></h3>
+                    <p data-lang="about_section1_p1"></p>
+                    <p data-lang="about_section1_p2"></p>
 
-                    <h3 data-lang="about_section2_title">Misyonumuz ve Değerlerimiz</h3>
-                    <p data-lang="about_section2_p1">Misyonumuz, çatımız altındaki her bir markanın kendi alanında lider olmasını sağlarken, tüm grup şirketleri arasında bir sinerji yaratarak sürdürülebilir ve yenilikçi bir büyüme modeli oluşturmaktır. Müşteri memnuniyetini ve kaliteyi her şeyin üzerinde tutarız.</p>
-                    <ul>
-                        <li data-lang="value1"><strong>Kalite:</strong> Sunduğumuz her ürün ve hizmette en yüksek standartları hedefleriz.</li>
-                        <li data-lang="value2"><strong>Güven:</strong> Tüm paydaşlarımızla ilişkilerimizi şeffaflık ve dürüstlük üzerine kurarız.</li>
-                        <li data-lang="value3"><strong>İnovasyon:</strong> Statükoya meydan okur, sektörlerimize yön veren yenilikçi çözümler geliştiririz.</li>
-                        <li data-lang="value4"><strong>Global Bakış Açısı:</strong> Yerel değerlere saygı duyarak küresel ölçekte düşünür ve hareket ederiz.</li>
+                    <h3 data-lang="about_section2_title" style="margin-top: 2rem;"></h3>
+                    <p data-lang="about_section2_p1"></p>
+                    <ul style="list-style: none; padding-left: 0; margin-top: 1rem;">
+                        <li data-lang="value1" style="margin-bottom: 0.5rem;"></li>
+                        <li data-lang="value2" style="margin-bottom: 0.5rem;"></li>
+                        <li data-lang="value3" style="margin-bottom: 0.5rem;"></li>
+                        <li data-lang="value4"></li>
                     </ul>
                 </div>
             </div>
