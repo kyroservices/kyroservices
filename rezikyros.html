@@ -6,13 +6,30 @@
     </head>
 <body>
 <div class="page-wrapper">
+    <header class="main-header">
+        <div class="header-container">
+            <div class="nav-left"></div>
+            <div class="center-logo"><a href="index.html"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/290299_a04d46893aa7d9c461374e6ce89f8267-11_7_2022-10_38_08-AM-300x300.png?crop=1" alt="KyroServices Global Logo"></a></div>
+            <div class="nav-right">
+                <div class="lang-switcher">
+                     <button id="lang-en" onclick="changeLanguage('en')" title="English">EN</button>
+                     <button id="lang-tr" onclick="changeLanguage('tr')" title="Türkçe">TR</button>
+                     <button id="lang-el" onclick="changeLanguage('el')" title="Ελληνικά">EL</button>
+                     <button id="lang-fr" onclick="changeLanguage('fr')" title="Français">FR</button>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+     <div class="overlay-menu" id="overlay-menu">
+        </div>
     <main>
         <header class="page-header reveal">
             <img src="https://kyrosil.eu/wp-content/uploads/2025/07/8_31_2022-8_02_56-AM-150x300.png" alt="ReziKyros Logo" class="hero-logo" style="max-height: 150px; width:auto;">
             <h1 data-lang="rezi_page_title"></h1>
         </header>
         <section>
-            <div class="container reveal content-text">
+            <div class="container reveal content-text" style="text-align:center;">
                 <p data-lang="rezi_intro"></p>
             </div>
         </section>
@@ -32,11 +49,23 @@
                 <div class="section-title"><h2 data-lang="rezi_form_title"></h2></div>
                 <div class="form-container">
                     <form action="tesekkurler.html" method="GET">
-                        </form>
+                        <div class="form-grid">
+                            <div class="form-group"><label for="name" data-lang="form_name"></label><input type="text" id="name" name="name" required></div>
+                            <div class="form-group"><label for="email" data-lang="form_email"></label><input type="email" id="email" name="email" required></div>
+                            <div class="form-group full-width"><label for="message" data-lang="form_message"></label><textarea id="message" name="message" rows="5" required></textarea></div>
+                            <div class="form-group full-width" style="text-align: center;"><button type="submit" class="btn" data-lang="form_submit"></button></div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
+    <footer>
+        <div class="container">
+            <p><a href="index.html" style="color: var(--gray-color);">A KyroServices Global Company</a></p>
+            <p>&copy; <span id="year"></span> ReziKyros</p>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </div>
 </body>
