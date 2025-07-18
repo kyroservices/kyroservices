@@ -8,6 +8,24 @@
     </head>
 <body>
 <div class="page-wrapper">
+    <header class="main-header">
+        <div class="header-container">
+            <div class="nav-left"></div>
+            <div class="center-logo"><a href="index.html"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/290299_a04d46893aa7d9c461374e6ce89f8267-11_7_2022-10_38_08-AM-300x300.png?crop=1" alt="KyroServices Global Logo"></a></div>
+            <div class="nav-right">
+                <div class="lang-switcher">
+                     <button id="lang-en" onclick="changeLanguage('en')" title="English">EN</button>
+                     <button id="lang-tr" onclick="changeLanguage('tr')" title="Türkçe">TR</button>
+                     <button id="lang-el" onclick="changeLanguage('el')" title="Ελληνικά">EL</button>
+                     <button id="lang-fr" onclick="changeLanguage('fr')" title="Français">FR</button>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+     <div class="overlay-menu" id="overlay-menu">
+        </div>
+
     <header class="page-header reveal">
         <h1 data-lang="contact_page_title"></h1>
     </header>
@@ -19,13 +37,13 @@
                     <div class="presence-card">
                         <div class="icon"><i class="fa-solid fa-globe-europe"></i></div>
                         <h4 data-lang="contact_greece_title"></h4>
-                        <p>Leoforos Kifisias 123, Marousi, 151 24 Athens, Greece</p>
+                        <p class="address">Leoforos Kifisias 123, Marousi, 151 24 Athens, Greece</p>
                         <p><a href="mailto:info@kyroservices.eu">info@kyroservices.eu</a></p>
                     </div>
                     <div class="presence-card">
                         <div class="icon"><i class="fa-solid fa-map-pin"></i></div>
                         <h4 data-lang="contact_turkey_title"></h4>
-                        <p>ReziKyros Azure Kağıthane, No:11 Kağıthane/İstanbul</p>
+                        <p class="address">ReziKyros Azure Kağıthane, No:11 Kağıthane/İstanbul</p>
                         <p><a href="mailto:info.tr@kyroservices.eu">info.tr@kyroservices.eu</a></p>
                     </div>
                 </div>
@@ -49,6 +67,7 @@
         </section>
     </main>
 
-    </div>
+    <script src="script.js"></script>
+</div>
 </body>
 </html>
