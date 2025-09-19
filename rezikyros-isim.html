@@ -4,50 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReziKyros İsim Yarışması</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
-        :root {
-            --primary-color: #1a237e;
-            --secondary-color: #ffc107;
-            --dark-color: #212121;
-            --gray-color: #616161;
-            --light-color: #f8f9fa;
-            --white-color: #ffffff;
-            --border-radius: 12px;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+        /* Formun kendi stilleri */
         .form-container {
             max-width: 800px;
-            width: 100%;
             margin: 2rem auto;
             padding: 3rem;
             background: var(--white-color);
             border-radius: var(--border-radius);
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        h2 {
-            font-family: 'Roboto Slab', serif;
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            text-align: center;
+        .form-title h2 {
             margin-bottom: 0.5rem;
         }
-        p {
-            font-family: 'Poppins', sans-serif;
+        .form-title p {
             font-size: 1.1em;
             color: var(--gray-color);
-            text-align: center;
             margin-bottom: 25px;
         }
         .form-grid {
@@ -117,6 +95,7 @@
             border: 2px solid #2e7d32;
             border-radius: 8px;
         }
+        
         @media (max-width: 768px) {
             .form-grid {
                 grid-template-columns: 1fr;
@@ -125,52 +104,107 @@
     </style>
 </head>
 <body>
-    <div class="form-container">
-        <div id="contestForm">
-            <div class="form-title">
-                <h2>ReziKyros İsim Yarışması</h2>
-                <p>Projemiz için en yaratıcı ismi sen bul, <span style="color:var(--primary-color); font-weight:bold;">10.000 €</span>'luk büyük ödülü kazanma şansı yakala!</p>
+<div class="page-wrapper">
+    <header class="main-header">
+        <div class="header-container">
+            <div class="nav-left"></div>
+            <div class="center-logo"><a href="index.html"><img src="https://kyrosil.eu/wp-content/uploads/2025/07/290299_a04d46893aa7d9c461374e6ce89f8267-11_7_2022-10_38_08-AM-300x300.png?crop=1" alt="KyroServices Global Logo"></a></div>
+            <div class="nav-right">
+                <div class="lang-switcher">
+                    <button id="lang-en" onclick="changeLanguage('en')" title="English">EN</button>
+                    <button id="lang-tr" onclick="changeLanguage('tr')" title="Türkçe">TR</button>
+                    <button id="lang-el" onclick="changeLanguage('el')" title="Ελληνικά">EL</button>
+                    <button id="lang-fr" onclick="changeLanguage('fr')" title="Français">FR</button>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu"><i class="fa-solid fa-bars"></i></button>
             </div>
-            
-            <form id="submissionForm" action="https://formspree.io/f/xxxxxxxx" method="POST">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="name">Adınız:</label>
-                        <input type="text" id="name" name="name" required>
+        </div>
+    </header>
+    <div class="overlay-menu" id="overlay-menu">
+        <button class="close-menu" id="close-menu" aria-label="Close Menu">&times;</button>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-lang="menu_home"></a></li>
+                <li><a href="hakkimizda.html" data-lang="menu_about"></a></li>
+                <li><a href="yonetim.html" data-lang="menu_team"></a></li>
+                <hr style="border-color: rgba(255,255,255,0.2);">
+                <li><a href="kd-history.html" data-lang="menu_kd"></a></li>
+                <li><a href="pep.html" data-lang="menu_pep"></a></li>
+                <li><a href="yunandan-gelsin.html" data-lang="menu_yunan"></a></li>
+                <li><a href="kampus-giyim.html" data-lang="menu_kampus"></a></li>
+                <li><a href="rezikyros.html" data-lang="menu_rezi"></a></li>
+                <li><a href="kosmos-vize.html" data-lang="menu_kosmos"></a></li>
+                <hr style="border-color: rgba(255,255,255,0.2);">
+                <li><a href="kariyer.html" data-lang="menu_career"></a></li>
+                <li><a href="iletisim.html" data-lang="menu_contact"></a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <main>
+        <section>
+            <div class="container reveal">
+                <div class="form-container">
+                    <div id="contestForm">
+                        <div class="form-title">
+                            <h2>ReziKyros İsim Yarışması</h2>
+                            <p>Projemiz için en yaratıcı ismi sen bul, <span style="color:var(--primary-color); font-weight:bold;">10.000 €</span>'luk büyük ödülü kazanma şansı yakala!</p>
+                        </div>
+                        
+                        <form id="submissionForm" action="https://formspree.io/f/xxxxxxxx" method="POST">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="name">Adınız:</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="surname">Soyadınız:</label>
+                                    <input type="text" id="surname" name="surname" required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="email">E-posta Adresiniz:</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="phone">Telefon Numaranız:</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="proposal">İsim Öneriniz:</label>
+                                    <input type="text" id="proposal" name="proposal" required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="reason">Neden bu ismi önerdiniz?</label>
+                                    <textarea id="reason" name="reason" rows="4" required></textarea>
+                                </div>
+                                <div class="form-button">
+                                    <button type="submit">Gönder</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="surname">Soyadınız:</label>
-                        <input type="text" id="surname" name="surname" required>
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="email">E-posta Adresiniz:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="phone">Telefon Numaranız:</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="proposal">İsim Öneriniz:</label>
-                        <input type="text" id="proposal" name="proposal" required>
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="reason">Neden bu ismi önerdiniz?</label>
-                        <textarea id="reason" name="reason" rows="4" required></textarea>
-                    </div>
-                    <div class="form-button">
-                        <button type="submit">Gönder</button>
+                
+                    <div id="successMessage" class="success-message">
+                        <h3>Başvurunuz İçin Teşekkürler!</h3>
+                        <p>Öneriniz başarıyla kaydedildi. Değerlendirme sürecimizin ardından kazanan isim web sitemizden duyurulacaktır.</p>
                     </div>
                 </div>
-            </form>
-        </div>
-    
-        <div id="successMessage" class="success-message">
-            <h3>Başvurunuz İçin Teşekkürler!</h3>
-            <p>Öneriniz başarıyla kaydedildi. Değerlendirme sürecimizin ardından kazanan isim web sitemizden duyurulacaktır.</p>
-        </div>
-    </div>
+            </div>
+        </section>
+    </main>
 
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> KyroServices Global. All Rights Reserved.</p>
+            <div class="footer-links" style="margin-top: 1rem;">
+                <a href="gizlilik-politikasi.html" data-lang="privacy_policy"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+    
     <script>
         document.getElementById('submissionForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -198,5 +232,7 @@
             });
         });
     </script>
+
+</div>
 </body>
 </html>
