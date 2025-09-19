@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
-        /* Formun kendi stilleri */
+        /* Formun kendi stilleri ve yeni eklenenler */
         .page-header {
             padding-top: 150px;
             padding-bottom: 3rem;
@@ -119,30 +119,107 @@
             width: auto;
             margin-right: 10px;
         }
-        .form-checkboxes a {
+        .form-checkboxes a, .form-checkboxes span {
             color: var(--primary-color);
             font-weight: 600;
+            cursor: pointer;
         }
-        .content-text {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-            font-size: 1.1rem;
-            color: var(--gray-color);
+        .form-checkboxes a:hover, .form-checkboxes span:hover {
+            text-decoration: underline;
         }
-        .content-text ul {
-            list-style-position: inside;
-            padding-left: 1rem;
+
+        /* Yeni proje detayları kartları */
+        .project-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
-        .content-text h3 {
+        .detail-card {
+            background: var(--primary-color);
+            color: var(--white-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .detail-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        .detail-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .detail-card p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0;
+        }
+
+        /* KVKK Modal */
+        .modal {
+            display: none; /* Gizli */
+            position: fixed;
+            z-index: 1002;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: var(--light-color);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h3 {
             color: var(--primary-color);
-            margin-top: 2rem;
             text-align: center;
         }
-        
+        .close-modal {
+            color: var(--dark-color);
+            font-size: 2rem;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close-modal:hover {
+            color: #d32f2f;
+        }
+        .modal p {
+            text-align: left;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--dark-color);
+        }
+        .modal-disclaimer {
+            font-style: italic;
+            font-size: 0.8rem;
+            color: #d32f2f;
+        }
+
         @media (max-width: 768px) {
             .form-grid {
                 grid-template-columns: 1fr;
+            }
+            .modal-content {
+                width: 90%;
             }
         }
     </style>
@@ -195,10 +272,27 @@
                 <div class="section-title">
                     <h2>Proje Detayları</h2>
                 </div>
-                <div class="content-text">
-                    <p>KyroServices Global iştiraki ReziKyros, Hasdal–Göktürk–İstanbul Havalimanı bağlantı aksında yer alan, toplam 21.682 m² büyüklüğündeki alan için Çevresel Etki Değerlendirmesi (ÇED) onay sürecindedir. Tüm mühendislik, finansman ve saha hazırlıklarımız tamamlanmış olup onayın ardından kazı ve temel çalışmalarına derhâl başlanacaktır.</p>
-                    <p>Proje kapsamı; dinlenme tesisi, orta ölçekli AVM ve 4 konut bloğundan oluşmaktadır. Ayrıca Gayrettepe–İstanbul Havalimanı metro hattındaki Göktürk durağına planlanan ek çıkış ile projeye doğrudan metro bağlantısı hedeflenmektedir.</p>
-                    <p>Çevresel mevzuata tam uyum, sürdürülebilirlik kriterleri ve komşuluk ilişkilerine duyarlılık, proje yönetimimizin temel öncelikleridir.</p>
+                <div class="project-details-grid">
+                    <div class="detail-card">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h4>Konum</h4>
+                        <p>Hasdal–Göktürk–İstanbul Havalimanı bağlantı aksı</p>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fa-solid fa-city"></i>
+                        <h4>Kapsam</h4>
+                        <p>Dinlenme tesisi, orta ölçekli AVM ve 4 konut bloğu</p>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fa-solid fa-subway"></i>
+                        <h4>Ulaşım</h4>
+                        <p>Gayrettepe–İstanbul Havalimanı metro hattına doğrudan bağlantı</p>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fa-solid fa-leaf"></i>
+                        <h4>Yaklaşım</h4>
+                        <p>Çevresel mevzuata tam uyum ve sürdürülebilirlik odaklı</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -241,8 +335,8 @@
                                 
                                 <div class="form-checkboxes">
                                     <label>
-                                        <input type="checkbox" id="kvkk" name="kvkk" required>
-                                        KVKK metnini okudum ve anladım.
+                                        <input type="checkbox" id="kvkk-check" name="kvkk-check" required>
+                                        <span id="open-kvkk">KVKK metnini okumak için tıklayın.</span>
                                     </label>
                                     <label>
                                         <input type="checkbox" id="age_citizen" name="age_citizen" required>
@@ -275,10 +369,24 @@
         </div>
     </footer>
 
+    <div id="kvkkModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>KVKK Aydınlatma Metni</h3>
+            <p class="modal-disclaimer">Bu metin bilgilendirme amaçlıdır. Hukuki geçerliliği için bir avukata danışmanız gerekmektedir.</p>
+            <p><strong>Amaç:</strong> İsim yarışması kapsamında toplanan ad, soyad, e-posta, telefon, isim önerisi ve neden bilgileri, yarışma başvurularını değerlendirmek, sonuçları duyurmak ve ödül teslimatını sağlamak amacıyla işlenmektedir. Veriler, KVKK'nın 5. maddesinde belirtilen meşru menfaatler ve yasal yükümlülükler kapsamında işlenir.</p>
+            <p><strong>İşleme Yöntemi:</strong> Veriler, tamamen otomatik yollarla, form aracılığıyla toplanır. Yarışma sonuçlarının açıklanmasının ardından, toplanan veriler yasal süreler içinde silinecektir.</p>
+            <p><strong>Veri Sorumlusu:</strong> KyroServices Global olarak, veri güvenliğinizi sağlamak ve verilerinizi yasalara uygun bir şekilde işlemekten sorumluyuz.</p>
+            <p><strong>Haklarınız:</strong> KVKK'nın 11. maddesi uyarınca, bize başvurarak; kişisel verilerinizin işlenip işlenmediğini öğrenme, verilerinizin düzeltilmesini, silinmesini veya yok edilmesini talep etme, işlenen verilere itiraz etme gibi haklara sahipsiniz.</p>
+            <p>Bu metni kabul ederek, kişisel verilerinizin yukarıda belirtilen amaçlar doğrultusunda işlenmesine onay vermiş olursunuz.</p>
+        </div>
+    </div>
+    
     <script src="translations.js"></script>
     <script src="script.js"></script>
     
     <script>
+        // Form ve Modal için JavaScript
         document.getElementById('submissionForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const form = this;
@@ -304,6 +412,25 @@
                 alert('Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');
             });
         });
+
+        // KVKK modal işlevselliği
+        const modal = document.getElementById('kvkkModal');
+        const openModalLink = document.getElementById('open-kvkk');
+        const closeModalButton = document.querySelector('.close-modal');
+
+        openModalLink.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        closeModalButton.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 
 </div>
